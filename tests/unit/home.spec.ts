@@ -95,4 +95,13 @@ describe('HomePage', () => {
         //displays MainGame component
         expect(wrapper.findComponent(MainGame).exists()).toBe(true);
     })
+
+    it('starts the game on button click', () => {
+      const wrapper = shallowMount(HomePage);
+      wrapper.vm.displayGame = false;
+      
+      wrapper.find('.start-game').trigger('click');
+      
+      expect(wrapper.vm.displayGame).toBe(true);
+    });
 })
