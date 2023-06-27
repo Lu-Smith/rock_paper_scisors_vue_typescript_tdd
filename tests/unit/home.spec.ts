@@ -1,6 +1,26 @@
 import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
-import { ref } from "vue";
+import MainGame from "@/components/MainGame.vue";
+
+const HomePageConditional = {
+  template: `
+    <div v-if="!name" class="player">
+      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
+      <button class="confirm" type="submit" @click="submitName">Confirm</button>
+    </div>
+    <div v-else class="welcome-message">
+      Welcome, {{ playerName }}!
+    </div>
+    <button class="start-game">Start</button>
+  `,
+  data() {
+    return {
+      name: true,
+      playerName: 'Max'
+    }
+  }
+}
+
 
 describe('HomePage', () => {
     it('renders all elements correctly  when name is not set', async () => {
@@ -23,28 +43,9 @@ describe('HomePage', () => {
         expect(startGameButton.text()).toBe('Start')
     })
 
-    it('renders all elements correctly  when name is set', async () => {
-      const HomePageConditional = {
-        template: `
-          <div v-if="!name" class="player">
-            <input type="text" v-model="playerName" placeholder="Enter your name..."/>
-            <button class="confirm" type="submit" @click="submitName">Confirm</button>
-          </div>
-          <div v-else class="welcome-message">
-            Welcome, {{ playerName }}!
-          </div>
-          <button class="start-game">Start</button>
-        `,
-        data() {
-          return {
-            name: true,
-            playerName: 'Max'
-          }
-        }
-      }
+    it('renders all elements correctly when name is set', async () => {
+     
       const wrapper = shallowMount(HomePageConditional);
-  
-        
         //players name
         const playerElement = wrapper.find('div.player')
         expect(playerElement.exists()).toBe(false)
@@ -55,5 +56,13 @@ describe('HomePage', () => {
         const startGameButton = wrapper.find('button.start-game')
         expect(startGameButton.exists()).toBe(true)
         expect(startGameButton.text()).toBe('Start')
+    })
+
+    it('renders MainGame component when start-game button is pressed', async () => {
+    
+      const wrapper = shallowMount(HomePageConditional);
+        //displays MainGame component
+        const mainGameElement = wrapper.findComponent(MainGame)
+        expect(mainGameElement.exists()).toBe(false)
     })
 })
