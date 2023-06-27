@@ -11,6 +11,10 @@ describe('FooterComponent', () => {
         expect(footerElement.text()).toBe('This software was coded by Luna Smith and is available as an open-source project on GitHub.')
         
         //profile link
+        const profileLink = footerElement.find('a.profile-link')
+        expect(profileLink.exists()).toBe(true)
+        expect(profileLink.text()).toBe('Luna Smith')
+        expect(profileLink.attributes('href')).toBe('https://www.lunasmithart.com/')
         //GitHub link
     })
 })
