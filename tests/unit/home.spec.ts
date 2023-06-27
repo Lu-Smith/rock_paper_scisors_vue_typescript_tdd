@@ -104,4 +104,13 @@ describe('HomePage', () => {
       
       expect(wrapper.vm.displayGame).toBe(true);
     });
+
+    it('change the name to true on button click', () => {
+      const wrapper = shallowMount(HomePage);
+      wrapper.vm.name = false;
+      
+      wrapper.find('.confirm').trigger('click');
+      
+      expect(wrapper.vm.name).toBe(true);
+    });
 })
