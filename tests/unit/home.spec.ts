@@ -2,8 +2,9 @@ import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
 import MainGame from "@/components/MainGame.vue";
 
-const HomePageConditional = {
+const HomePageConditionalSetName = {
   template: `
+  <div v-if="!displayGame">
     <div v-if="!name" class="player">
       <input type="text" v-model="playerName" placeholder="Enter your name..."/>
       <button class="confirm" type="submit" @click="submitName">Confirm</button>
@@ -11,19 +12,48 @@ const HomePageConditional = {
     <div v-else class="welcome-message">
       Welcome, {{ playerName }}!
     </div>
-    <button class="start-game">Start</button>
+    <button class="start-game" @click="startGame">Start</button>
+  </div>
+  <div v-else>
+    <MainGame />
+  </div>
   `,
   data() {
     return {
       name: true,
-      playerName: 'Max'
+      playerName: 'Max',
+      displayGame: false
+    }
+  }
+}
+
+const HomePageConditionalStartGame = {
+  template: `
+  <div v-if="!displayGame">
+    <div v-if="!name" class="player">
+      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
+      <button class="confirm" type="submit" @click="submitName">Confirm</button>
+    </div>
+    <div v-else class="welcome-message">
+      Welcome, {{ playerName }}!
+    </div>
+    <button class="start-game" @click="startGame">Start</button>
+  </div>
+  <div v-else>
+    <MainGame />
+  </div>
+  `,
+  components: { MainGame },
+  data() {
+    return {
+      displayGame: true
     }
   }
 }
 
 
 describe('HomePage', () => {
-    it('renders all elements correctly  when name is not set', async () => {
+    it('renders all elements correctly  when name is not set', () => {
         const wrapper = shallowMount(HomePage)
         
         //players name
@@ -43,9 +73,9 @@ describe('HomePage', () => {
         expect(startGameButton.text()).toBe('Start')
     })
 
-    it('renders all elements correctly when name is set', async () => {
+    it('renders all elements correctly when name is set', () => {
      
-      const wrapper = shallowMount(HomePageConditional);
+      const wrapper = shallowMount(HomePageConditionalSetName);
         //players name
         const playerElement = wrapper.find('div.player')
         expect(playerElement.exists()).toBe(false)
@@ -58,11 +88,11 @@ describe('HomePage', () => {
         expect(startGameButton.text()).toBe('Start')
     })
 
-    it('renders MainGame component when start-game button is pressed', async () => {
+    it('renders MainGame component when start-game button is pressed', () => {
     
-      const wrapper = shallowMount(HomePageConditional);
+      const wrapper = shallowMount(HomePageConditionalStartGame);
+
         //displays MainGame component
-        const mainGameElement = wrapper.findComponent(MainGame)
-        expect(mainGameElement.exists()).toBe(false)
+        expect(wrapper.findComponent(MainGame).exists()).toBe(true);
     })
 })
