@@ -10,9 +10,10 @@ describe('HomePage', () => {
         expect(playerElement.exists()).toBe(true)
         const playerNameInput = playerElement.find('input')
         expect(playerNameInput.exists()).toBe(true)
-        expect(playerNameInput.attributes('placeHolder')).toBe('Enter your name...')
+        expect(playerNameInput.attributes('placeholder')).toBe('Enter your name...')
         //startGame button
         const startGameButton = wrapper.find('button.start-game')
         expect(startGameButton.exists()).toBe(true)
+        expect(startGameButton.text()).toBe('Start')
     })
 })
