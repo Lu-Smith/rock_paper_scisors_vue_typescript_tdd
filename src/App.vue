@@ -1,6 +1,6 @@
 <template>
   <h1>Rock Paper Scissors</h1>
-  <HomePage msg="I am creating a new Vue game" />
+  <HomePage />
   <FooterComponent />
 </template>
 
