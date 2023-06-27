@@ -17,7 +17,12 @@ describe('FooterComponent', () => {
         expect(profileLink.attributes('href')).toBe('https://www.lunasmithart.com/')
         expect(profileLink.attributes('target')).toBe('_blank')
        
-        //GitHub link
+        //gitHub link
+        const gitHubLink = footerElement.find('a.gitHub-link')
+        expect(gitHubLink.exists()).toBe(true)
+        expect(gitHubLink.text()).toBe('Luna Smith')
+        expect(gitHubLink.attributes('href')).toBe('https://github.com/Lu-Smith/rock_paper_scisors_vue_typescript_tdd')
+        expect(gitHubLink.attributes('target')).toBe('_blank')
     })
 })
 
