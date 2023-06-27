@@ -1,5 +1,5 @@
 <template>
-  <h3>I am a footer</h3>
+  <h3>This software was coded by Luna Smith and is available as an open-source project on GitHub.</h3>
 </template>
 
 <script lang="ts">

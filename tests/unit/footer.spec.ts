@@ -8,7 +8,7 @@ describe('FooterComponent', () => {
         //h3 element
         const footerElement = wrapper.find('h3')
         expect(footerElement.exists()).toBe(true)
-        expect(footerElement.text()).toBe('Coded by Luna Smith, open source on GitHub.')
+        expect(footerElement.text()).toBe('This software was coded by Luna Smith and is available as an open-source project on GitHub.')
         
         //profile link
         //GitHub link
