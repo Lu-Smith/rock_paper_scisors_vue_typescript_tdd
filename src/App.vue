@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello world</h1>
+  <h1>Rock Paper Scissors</h1>
   <HomePage msg="I am creating a new Vue game" />
 </template>
 
