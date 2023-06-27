@@ -15,6 +15,8 @@ describe('FooterComponent', () => {
         expect(profileLink.exists()).toBe(true)
         expect(profileLink.text()).toBe('Luna Smith')
         expect(profileLink.attributes('href')).toBe('https://www.lunasmithart.com/')
+        expect(profileLink.attributes('target')).toBe('_blank')
+       
         //GitHub link
     })
 })
