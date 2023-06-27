@@ -18,7 +18,5 @@ export default defineComponent({
 
 
 <style lang="scss">
-  #app {
-    background: black;
-  }
+
 </style>
