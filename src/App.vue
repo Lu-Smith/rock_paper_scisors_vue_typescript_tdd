@@ -1,6 +1,6 @@
 <template>
   <h1>Hello world</h1>
-  <HomePage />
+  <HomePage msg="I am creating a new Vue game" />
 </template>
 
 <script lang="ts">
@@ -18,7 +18,7 @@ export default defineComponent({
 
 
 <style lang="scss">
-#app {
-  background: black;
-}
+  #app {
+    background: black;
+  }
 </style>

@@ -1,9 +1,10 @@
 <template>
-  <h2>I am a home page</h2>
+  <h2>{{ msg }}</h2>
 </template>
 
 <script lang="ts">
 export default {
+    props: ['msg']
 
 }
 </script>
