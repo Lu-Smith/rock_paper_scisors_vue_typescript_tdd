@@ -1,12 +1,14 @@
 import { shallowMount } from "@vue/test-utils";
 import MainGame from "@/components/MainGame.vue";
+import TimeComponent from "@/components/TimeComponent.vue"
+import TimerComponent from "@/components/TimerComponent.vue"
 
 describe('MainGame', () => {
     it('redners all the elements correctly', () => {
         const wrapper = shallowMount(MainGame)
 
         //render TimerComponent
-        const timerComponent = wrapper.findComponent('TimerComponent')
+        const timerComponent = wrapper.findComponent(TimerComponent)
         expect(timerComponent.exists()).toBe(true)
         //render game elements
         const instractionElement = wrapper.find('h2')
@@ -29,7 +31,7 @@ describe('MainGame', () => {
 
         
         //render TimerComponent
-        const timeComponent = wrapper.findComponent('TimeComponent')
+        const timeComponent = wrapper.findComponent(TimeComponent)
         expect(timeComponent.exists()).toBe(true)
     })
 })
