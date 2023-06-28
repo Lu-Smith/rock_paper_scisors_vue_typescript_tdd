@@ -1,6 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
 import MainGame from "@/components/MainGame.vue";
+import { ref } from 'vue'
 
 const HomePageConditionalSetName = {
   template: `
@@ -18,11 +19,25 @@ const HomePageConditionalSetName = {
     <MainGame />
   </div>
   `,
-  data(): { name: boolean; playerName: string; displayGame: boolean } {
+  setup() {
+    const playerName = ref('Max');
+    const name = ref(true);
+    const displayGame = ref(false)
+
+    const submitName = () => {
+        name.value = true;
+    }
+
+    const startGame = () => {
+      displayGame.value = true
+    }
+
     return {
-      name: true ,
-      playerName: 'Max',
-      displayGame: false
+      playerName,
+      name,
+      displayGame,
+      submitName,
+      startGame
     }
   }
 }
@@ -44,9 +59,25 @@ const HomePageConditionalStartGame = {
   </div>
   `,
   components: { MainGame },
-  data(): { displayGame: boolean } {
+  setup() {
+    const playerName = ref('Max');
+    const name = ref(true);
+    const displayGame = ref(true)
+
+    const submitName = () => {
+        name.value = true;
+    }
+
+    const startGame = () => {
+      displayGame.value = true
+    }
+
     return {
-      displayGame: true as boolean
+      playerName,
+      name,
+      displayGame,
+      submitName,
+      startGame
     }
   }
 }
@@ -73,7 +104,7 @@ describe('HomePage', () => {
         expect(startGameButton.text()).toBe('Start')
     })
 
-    it('renders all elements correctly when name is set', () => {
+    it('renders all elements correctly when name is set', async () => {
      
       const wrapper = shallowMount(HomePageConditionalSetName);
         //players name

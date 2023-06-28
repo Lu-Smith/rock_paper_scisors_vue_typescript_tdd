@@ -12,7 +12,6 @@
   <div v-else>
     <MainGame />
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -32,7 +31,6 @@ export default {
     }
 
     const startGame = () => {
-      alert('Hello')
       displayGame.value = true
     }
 
