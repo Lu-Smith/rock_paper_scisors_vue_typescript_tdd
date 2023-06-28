@@ -18,9 +18,9 @@ const HomePageConditionalSetName = {
     <MainGame />
   </div>
   `,
-  data() {
+  data(): { name: boolean; playerName: string; displayGame: boolean } {
     return {
-      name: true,
+      name: true ,
       playerName: 'Max',
       displayGame: false
     }
@@ -44,9 +44,9 @@ const HomePageConditionalStartGame = {
   </div>
   `,
   components: { MainGame },
-  data() {
+  data(): { displayGame: boolean } {
     return {
-      displayGame: true
+      displayGame: true as boolean
     }
   }
 }
@@ -98,7 +98,7 @@ describe('HomePage', () => {
 
     it('starts the game on button click', () => {
       const wrapper = shallowMount(HomePage);
-      wrapper.vm.displayGame = false;
+      (wrapper.vm as any).displayGame = false;
       
       wrapper.find('.start-game').trigger('click');
       
@@ -107,7 +107,7 @@ describe('HomePage', () => {
 
     it('change the name to true on button click', () => {
       const wrapper = shallowMount(HomePage);
-      wrapper.vm.name = false;
+      (wrapper.vm as any).name = false;
       
       wrapper.find('.confirm').trigger('click');
       
