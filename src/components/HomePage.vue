@@ -20,7 +20,7 @@ import MainGame from "@/components/MainGame.vue";
 
 export default {
   name: "HomePage",
-  components: {MainGame},
+  components: { MainGame },
   setup() {
     const playerName = ref('');
     const name = ref(false);
