@@ -13,6 +13,12 @@
     <img class="paper" src="../assets/images/paper.png" alt="paper" />
     <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
   </div>
+  <div class="score-container">
+    <h3 class="score">Score:</h3>
+    <h4 class="player-score">0</h4>
+    <h4 class="computer-score">0</h4>
+    <h4 class="total-score">0</h4>
+  </div>
   <TimeComponent />
 </template>
 
