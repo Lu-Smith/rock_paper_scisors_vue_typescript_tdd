@@ -14,27 +14,50 @@ describe('MainGame', () => {
         //render TimerComponent
         const timerComponent = wrapper.findComponent(TimerComponent)
         expect(timerComponent.exists()).toBe(true)
-        //render game elements
-        const instractionElement = wrapper.find('h2')
+        //render player elements
+        const instractionElement = wrapper.find('h2.player')
         expect(instractionElement.exists()).toBe(true)
         expect(instractionElement.text()).toBe(`Your move, Max`)
-        const imagesContainer = wrapper.find('div.images-container')
-        expect(imagesContainer.exists()).toBe(true)
-            const rockElement = imagesContainer.find('img.rock')
-            expect(rockElement.exists()).toBe(true)
-            expect(rockElement.attributes('alt')).toBe('rock')
-            rockElement.element.setAttribute('src', '../assets/images/rock.png');
-            expect(rockElement.attributes('src')).toBe('../assets/images/rock.png')
-            const paperElement = imagesContainer.find('img.paper')
-            expect(paperElement.exists()).toBe(true)
-            expect(paperElement.attributes('alt')).toBe('paper')
-            paperElement.element.setAttribute('src', '../assets/images/paper.png');
-            expect(paperElement.attributes('src')).toBe('../assets/images/paper.png')
-            const scissorsElement = imagesContainer.find('img.scissors')
-            expect(scissorsElement.exists()).toBe(true)
-            expect(scissorsElement.attributes('alt')).toBe('scissors')
-            scissorsElement.element.setAttribute('src', '../assets/images/scissors.png');
-            expect(scissorsElement.attributes('src')).toBe('../assets/images/scissors.png')
+        const imagesContainerPlayer = wrapper.find('div.images-container-player')
+        expect(imagesContainerPlayer.exists()).toBe(true)
+            const rockPlayerElement = imagesContainerPlayer.find('img.rock')
+            expect(rockPlayerElement.exists()).toBe(true)
+            expect(rockPlayerElement.attributes('alt')).toBe('rock')
+            rockPlayerElement.element.setAttribute('src', '../assets/images/rock.png');
+            expect(rockPlayerElement.attributes('src')).toBe('../assets/images/rock.png')
+            const paperPlayerElement = imagesContainerPlayer.find('img.paper')
+            expect(paperPlayerElement.exists()).toBe(true)
+            expect(paperPlayerElement.attributes('alt')).toBe('paper')
+            paperPlayerElement.element.setAttribute('src', '../assets/images/paper.png');
+            expect(paperPlayerElement.attributes('src')).toBe('../assets/images/paper.png')
+            const scissorsPlayerElement = imagesContainerPlayer.find('img.scissors')
+            expect(scissorsPlayerElement.exists()).toBe(true)
+            expect(scissorsPlayerElement.attributes('alt')).toBe('scissors')
+            scissorsPlayerElement.element.setAttribute('src', '../assets/images/scissors.png');
+            expect(scissorsPlayerElement.attributes('src')).toBe('../assets/images/scissors.png')
+
+          //render computer elements
+            const computerElement = wrapper.find('h2.computer')
+            expect(computerElement.exists()).toBe(true)
+            expect(computerElement.text()).toBe(`Computer move`)
+            const loadingElement = wrapper.find('h3')
+            expect(loadingElement.exists()).toBe(true)
+            const imagesContainerComputer = wrapper.find('div.images-container-computer')
+                const rockComputerElement = imagesContainerComputer.find('img.rock')
+                expect(rockComputerElement.exists()).toBe(true)
+                expect(rockComputerElement.attributes('alt')).toBe('rock')
+                rockComputerElement.element.setAttribute('src', '../assets/images/rock.png');
+                expect(rockComputerElement.attributes('src')).toBe('../assets/images/rock.png')
+                const paperComputerElement = imagesContainerComputer.find('img.paper')
+                expect(paperComputerElement.exists()).toBe(true)
+                expect(paperComputerElement.attributes('alt')).toBe('paper')
+                paperComputerElement.element.setAttribute('src', '../assets/images/paper.png');
+                expect(paperComputerElement.attributes('src')).toBe('../assets/images/paper.png')
+                const scissorsComputerElement = imagesContainerComputer.find('img.scissors')
+                expect(scissorsComputerElement.exists()).toBe(true)
+                expect(scissorsComputerElement.attributes('alt')).toBe('scissors')
+                scissorsComputerElement.element.setAttribute('src', '../assets/images/scissors.png');
+                expect(scissorsComputerElement.attributes('src')).toBe('../assets/images/scissors.png')
 
         
         //render TimerComponent
