@@ -10,7 +10,7 @@
     <button class="start-game" @click="startGame">Start</button>
   </div>
   <div v-else>
-    <MainGame />
+    <MainGame :playerName="playerName"/>
   </div>
 </template>
 

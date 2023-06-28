@@ -1,6 +1,11 @@
 <template>
   <TimerComponent />
-  <h2>Main Game</h2>
+  <h2>Your move, {{ playerName }}</h2>
+  <div class="images-container">
+    <img class="rock" src="../assets/images/rock.png" alt="rock" />
+    <img class="paper" src="../assets/images/paper.png" alt="paper" />
+    <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+  </div>
   <TimeComponent />
 </template>
 
@@ -10,6 +15,7 @@ import TimerComponent from './TimerComponent.vue'
 
 export default {
   name: "MainGame",
+  props: ['playerName'],
   components: {
     TimerComponent,
     TimeComponent
