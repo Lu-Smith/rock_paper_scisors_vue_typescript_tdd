@@ -1,37 +1,46 @@
 <template>
   <TimerComponent />
-  <h2 class="player">Your move, {{ playerName }}</h2>
-  <div class="images-container-player">
-    <img class="rock" src="../assets/images/rock.png" alt="rock" />
-    <img class="paper" src="../assets/images/paper.png" alt="paper" />
-    <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+  <div v-if="!gameOver" class="game-container">
+    <h2 class="player">Your move, {{ playerName }}</h2>
+    <div class="images-container-player">
+      <img class="rock" src="../assets/images/rock.png" alt="rock" />
+      <img class="paper" src="../assets/images/paper.png" alt="paper" />
+      <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+    </div>
+    <h2 class="computer">Computer move</h2>
+    <h3>loading...</h3>
+    <div class="images-container-computer">
+      <img class="rock" src="../assets/images/rock.png" alt="rock" />
+      <img class="paper" src="../assets/images/paper.png" alt="paper" />
+      <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+    </div>
   </div>
-  <h2 class="computer">Computer move</h2>
-  <h3>loading...</h3>
-  <div class="images-container-computer">
-    <img class="rock" src="../assets/images/rock.png" alt="rock" />
-    <img class="paper" src="../assets/images/paper.png" alt="paper" />
-    <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
-  </div>
-  <div class="score-container">
-    <h3 class="score">Score:</h3>
-    <h4 class="player-score">0</h4>
-    <h4 class="computer-score">0</h4>
-    <h4 class="total-score">0</h4>
-  </div>
+  <ResultContainer v-else />
+  <ScoreContainer />
   <TimeComponent />
 </template>
 
 <script lang="ts">
 import TimeComponent from './TimeComponent.vue'
 import TimerComponent from './TimerComponent.vue'
+import ResultContainer from './ResultContainer.vue'
+import ScoreContainer from './ScoreContainer.vue'
 
 export default {
   name: "MainGame",
   props: ['playerName'],
   components: {
     TimerComponent,
-    TimeComponent
+    TimeComponent,
+    ResultContainer,
+    ScoreContainer
+  },
+  setup() {
+    const gameOver = false
+
+    return {
+      gameOver
+    }
   }
 
 }
