@@ -59,7 +59,19 @@ describe('MainGame', () => {
                 scissorsComputerElement.element.setAttribute('src', '../assets/images/scissors.png');
                 expect(scissorsComputerElement.attributes('src')).toBe('../assets/images/scissors.png')
 
-        
+        //score
+        const scoreContainer = wrapper.find('div.score-container')
+        expect(scoreContainer.exists()).toBe(true)
+            const scoreElement = scoreContainer.find('h3.score')
+            expect(scoreElement.exists()).toBe(true)
+            expect(scoreElement.text()).toBe('Score')
+            const playerScore = scoreContainer.find('h4.player-score')
+            expect(playerScore.exists()).toBe(true)
+            const computerScore = scoreContainer.find('h4.computer-score')
+            expect(computerScore.exists()).toBe(true)
+            const totalScore = scoreContainer.find('h4.total-score')
+            expect(totalScore.exists()).toBe(true)
+            
         //render TimerComponent
         const timeComponent = wrapper.findComponent(TimeComponent)
         expect(timeComponent.exists()).toBe(true)
