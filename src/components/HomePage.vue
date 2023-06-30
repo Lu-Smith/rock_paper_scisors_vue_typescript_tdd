@@ -6,7 +6,12 @@
       <button class="confirm" type="submit" @click="submitName">Confirm</button>
     </div>
     <div v-else class="welcome-message">
-      Welcome, {{ playerName }}!
+      <div v-if="!timeOver">
+        Welcome, {{ playerName }}!
+      </div>
+      <div v-else>
+        {{ playerName }}! Shape your destiny with confidence ( 10s ).
+      </div>
     </div>
     <button class="start-game" @click="startGame">Start</button>
   </div>
@@ -29,6 +34,7 @@ export default {
     const displayGame = ref(false);
     const timer = ref(10);
     const timerInterval = ref(0)
+    const timeOver = ref(false)
 
     const submitName = () => {
         name.value = true;
@@ -36,6 +42,7 @@ export default {
 
     const startGame = () => {
       displayGame.value = true;
+      timer.value = 10;
       startTimer()
     }
 
@@ -44,6 +51,8 @@ export default {
       timer.value--;
       if (timer.value === 0) {
           clearInterval(timerInterval.value);
+          displayGame.value = false
+          timeOver.value = true
         }
      }, 1000)
 
@@ -56,7 +65,8 @@ export default {
       submitName,
       startGame,
       startTimer,
-      timer
+      timer, 
+      timeOver
     }
   }
 }

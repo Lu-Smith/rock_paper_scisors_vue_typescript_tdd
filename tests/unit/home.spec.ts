@@ -167,22 +167,33 @@ describe('HomePage', () => {
   });
 
   it('should start the timer and decrement it until reaching 0', () => {
-  const timer = ref(10);
-  const timerInterval = ref(0);
-  const gameOver = ref(false);
+    const wrapper = shallowMount(HomePage)
 
-  const startTimer = () => {
-    timerInterval.value = setInterval(() => {
-      timer.value--;
-      if (timer.value === 0) {
-        clearInterval(timerInterval.value);
-      }
-    }, 1000);
-  };
+    const timer = ref(10);
+    const timerInterval = ref(0);
+    const timeOver = ref(false);
+    // const playerName = ref("Max");
+    const displayGame = ref(true);
 
-  startTimer();
-  jest.advanceTimersByTime(11000); // Simulate 11 seconds passing
+    const startTimer = () => {
+      timerInterval.value = setInterval(() => {
+        timer.value--;
+        if (timer.value === 0) {
+          clearInterval(timerInterval.value);
+          displayGame.value = false;
+          timeOver.value = true;
+        }
+      }, 1000);
+    };
 
-  expect(timer.value).toBe(0);
+    startTimer();
+    jest.advanceTimersByTime(11000); // Simulate 11 seconds passing
+
+    expect(timer.value).toBe(0);
+    expect(timeOver.value).toBe(true);
+    expect(displayGame.value).toBe(false);
+    
+    // expect(wrapper.find("div.welcome-message").exists()).toBe(true);
+    // expect(wrapper.find("div.welcome-message").text()).toContain(`${playerName.value}! Shape your destiny with confidence ( 10s ).`);
 });
 })
