@@ -4,6 +4,43 @@ import TimeComponent from "@/components/TimeComponent.vue"
 import TimerComponent from "@/components/TimerComponent.vue"
 import ResultContainer from '@/components/ResultContainer.vue'
 import ScoreContainer from '@/components/ScoreContainer.vue'
+import { ref } from 'vue'
+
+const MainGameOver = {
+    template: `
+        <TimerComponent />
+        <div v-if="!gameOver" class="game-container">
+        <h2 class="player">Your move, {{ playerName }}</h2>
+        <div class="images-container-player">
+            <img class="rock" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
+            <img class="paper" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>
+            <img class="scissors" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
+        </div>
+        <h2 class="computer">Computer move</h2>
+        <h3>loading...</h3>
+        <div class="images-container-computer">
+            <img class="rock" src="../assets/images/rock.png" alt="rock" />
+            <img class="paper" src="../assets/images/paper.png" alt="paper" />
+            <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+        </div>
+        </div>
+        <ResultContainer v-else />
+        <ScoreContainer />
+        <TimeComponent />
+    `,
+    setup() {
+      const gameOver = ref(true)
+  
+      const handlePlayerMove = (move: string) => {
+          gameOver.value = !gameOver.value
+      }
+  
+      return {
+        gameOver,
+        handlePlayerMove
+      }
+    }
+}
 
 describe('MainGame', () => {
     it('redners all the elements correctly', () => {
@@ -46,6 +83,7 @@ describe('MainGame', () => {
             const loadingElement = wrapper.find('h3')
             expect(loadingElement.exists()).toBe(true)
             const imagesContainerComputer = wrapper.find('div.images-container-computer')
+            expect(imagesContainerComputer.exists()).toBe(true)
                 const rockComputerElement = imagesContainerComputer.find('img.rock')
                 expect(rockComputerElement.exists()).toBe(true)
                 expect(rockComputerElement.attributes('alt')).toBe('rock')
@@ -69,22 +107,19 @@ describe('MainGame', () => {
                 // does not render ResultComponent
                 const ResultComponent = wrapper.findComponent(ResultContainer)
                 expect(ResultComponent.exists()).toBe(false)
-        // //score
-        // const scoreContainer = wrapper.find('div.score-container')
-        // expect(scoreContainer.exists()).toBe(true)
-        //     const scoreElement = scoreContainer.find('h3.score')
-        //     expect(scoreElement.exists()).toBe(true)
-        //     expect(scoreElement.text()).toBe('Score:')
-        //     const playerScore = scoreContainer.find('h4.player-score')
-        //     expect(playerScore.exists()).toBe(true)
-        //     const computerScore = scoreContainer.find('h4.computer-score')
-        //     expect(computerScore.exists()).toBe(true)
-        //     const totalScore = scoreContainer.find('h4.total-score')
-        //     expect(totalScore.exists()).toBe(true)
+        
 
         //render TimerComponent
         const timeComponent = wrapper.findComponent(TimeComponent)
         expect(timeComponent.exists()).toBe(true)
     })
    
+    it('renders all elements for when gameOver is true', () => {
+        const wrapper = shallowMount(MainGameOver);
+     
+        const imagesContainerComputer = wrapper.find('div.images-container-computer')
+        expect(imagesContainerComputer.exists()).toBe(false)
+        const ResultComponent = wrapper.findComponent(ResultContainer)
+        expect(ResultComponent.exists()).toBe(true)
+    })
 })

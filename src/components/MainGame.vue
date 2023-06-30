@@ -3,9 +3,9 @@
   <div v-if="!gameOver" class="game-container">
     <h2 class="player">Your move, {{ playerName }}</h2>
     <div class="images-container-player">
-      <img class="rock" src="../assets/images/rock.png" alt="rock" />
-      <img class="paper" src="../assets/images/paper.png" alt="paper" />
-      <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
+      <img class="rock" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
+      <img class="paper" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>
+      <img class="scissors" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
     </div>
     <h2 class="computer">Computer move</h2>
     <h3>loading...</h3>
@@ -15,7 +15,9 @@
       <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
     </div>
   </div>
-  <ResultContainer v-else />
+  <div v-else>
+    <ResultContainer  />
+  </div>
   <ScoreContainer />
   <TimeComponent />
 </template>
@@ -25,6 +27,7 @@ import TimeComponent from './TimeComponent.vue'
 import TimerComponent from './TimerComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
+import { ref } from 'vue'
 
 export default {
   name: "MainGame",
@@ -36,10 +39,15 @@ export default {
     ScoreContainer
   },
   setup() {
-    const gameOver = false
+    const gameOver = ref(false)
+
+    const handlePlayerMove = (move: string) => {
+        gameOver.value = !gameOver.value
+    }
 
     return {
-      gameOver
+      gameOver,
+      handlePlayerMove
     }
   }
 
