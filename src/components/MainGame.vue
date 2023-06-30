@@ -1,5 +1,4 @@
 <template>
-  <TimerComponent :timer="timer" />
   <div v-if="!gameOver" class="game-container">
     <h2 class="player">Your move, {{ playerName }}</h2>
     <div class="images-container-player">
@@ -24,7 +23,6 @@
 
 <script lang="ts">
 import TimeComponent from './TimeComponent.vue'
-import TimerComponent from './TimerComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
 import { ref } from 'vue'
@@ -33,7 +31,6 @@ export default {
   name: "MainGame",
   props: ['playerName'],
   components: {
-    TimerComponent,
     TimeComponent,
     ResultContainer,
     ScoreContainer
@@ -41,31 +38,14 @@ export default {
   setup() {
     const gameOver = ref(false)
     
-    const timer = ref(10)
-
-    const timerInterval = ref(0)
-
-    const startTimer = () => {
-     timerInterval.value = setInterval(() => {
-      timer.value--;
-      if (timer.value === 0) {
-          clearInterval(timerInterval.value);
-          gameOver.value = true;
-        }
-     }, 100)
-
-    }
-
     const handlePlayerMove = (move: string) => {
         gameOver.value = true;
-        startTimer()
+        
     }
 
     return {
       gameOver,
-      handlePlayerMove,
-      startTimer, 
-      timer
+      handlePlayerMove
     }
   }
 

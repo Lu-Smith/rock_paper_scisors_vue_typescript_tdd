@@ -1,10 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
 import MainGame from "@/components/MainGame.vue";
+import TimerComponent from "@/components/TimerComponent.vue"
 import { ref } from 'vue'
 
 const HomePageConditionalSetName = {
   template: `
+  <TimerComponent :timer="timer" />
   <div v-if="!displayGame">
     <div v-if="!name" class="player">
       <input type="text" v-model="playerName" placeholder="Enter your name..."/>
@@ -44,6 +46,7 @@ const HomePageConditionalSetName = {
 
 const HomePageConditionalStartGame = {
   template: `
+  <TimerComponent :timer="timer" />
   <div v-if="!displayGame">
     <div v-if="!name" class="player">
       <input type="text" v-model="playerName" placeholder="Enter your name..."/>
@@ -84,8 +87,21 @@ const HomePageConditionalStartGame = {
 
 
 describe('HomePage', () => {
+  beforeEach(() => {
+    jest.useFakeTimers(); // Enable Jest's fake timers
+  });
+
+  afterEach(() => {
+    jest.runOnlyPendingTimers(); // Clear any pending timers
+    jest.useRealTimers(); // Restore real timers
+  });
+
     it('renders all elements correctly  when name is not set', () => {
         const wrapper = shallowMount(HomePage)
+
+        //render TimerComponent
+        const timerComponent = wrapper.findComponent(TimerComponent)
+        expect(timerComponent.exists()).toBe(true)
         
         //players name
         const playerElement = wrapper.find('div.player')
@@ -144,4 +160,29 @@ describe('HomePage', () => {
       
       expect(wrapper.vm.name).toBe(true);
     });
+
+    it('should initialize timer to 10', () => {
+      const timer = ref(10);
+      expect(timer.value).toBe(10);
+  });
+
+  it('should start the timer and decrement it until reaching 0', () => {
+  const timer = ref(10);
+  const timerInterval = ref(0);
+  const gameOver = ref(false);
+
+  const startTimer = () => {
+    timerInterval.value = setInterval(() => {
+      timer.value--;
+      if (timer.value === 0) {
+        clearInterval(timerInterval.value);
+      }
+    }, 1000);
+  };
+
+  startTimer();
+  jest.advanceTimersByTime(11000); // Simulate 11 seconds passing
+
+  expect(timer.value).toBe(0);
+});
 })
