@@ -1,5 +1,5 @@
 <template>
-  <TimerComponent />
+  <TimerComponent :timer="timer" />
   <div v-if="!gameOver" class="game-container">
     <h2 class="player">Your move, {{ playerName }}</h2>
     <div class="images-container-player">
@@ -40,14 +40,32 @@ export default {
   },
   setup() {
     const gameOver = ref(false)
+    
+    const timer = ref(10)
+
+    const timerInterval = ref(0)
+
+    const startTimer = () => {
+     timerInterval.value = setInterval(() => {
+      timer.value--;
+      if (timer.value === 0) {
+          clearInterval(timerInterval.value);
+          gameOver.value = true;
+        }
+     }, 100)
+
+    }
 
     const handlePlayerMove = (move: string) => {
-        gameOver.value = !gameOver.value
+        gameOver.value = true;
+        startTimer()
     }
 
     return {
       gameOver,
-      handlePlayerMove
+      handlePlayerMove,
+      startTimer, 
+      timer
     }
   }
 

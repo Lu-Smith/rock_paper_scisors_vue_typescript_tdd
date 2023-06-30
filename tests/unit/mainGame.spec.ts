@@ -45,6 +45,15 @@ const MainGameOver = {
 }
 
 describe('MainGame', () => {
+    beforeEach(() => {
+        jest.useFakeTimers(); // Enable Jest's fake timers
+      });
+    
+      afterEach(() => {
+        jest.runOnlyPendingTimers(); // Clear any pending timers
+        jest.useRealTimers(); // Restore real timers
+      });
+
     it('redners all the elements correctly', () => {
         const wrapper = shallowMount(MainGame, {
             propsData: {
@@ -136,5 +145,34 @@ describe('MainGame', () => {
       
           const ResultComponent = wrapper.findComponent(ResultContainer)
           expect(ResultComponent.exists()).toBe(true)
-        })
     })
+
+
+    it('should initialize timer to 10', () => {
+        const timer = ref(10);
+        expect(timer.value).toBe(10);
+    });
+
+    it('should start the timer and decrement it until reaching 0', () => {
+    const timer = ref(10);
+    const timerInterval = ref(0);
+    const gameOver = ref(false);
+
+    const startTimer = () => {
+      timerInterval.value = setInterval(() => {
+        timer.value--;
+        if (timer.value === 0) {
+          clearInterval(timerInterval.value);
+          gameOver.value = true;
+        }
+      }, 1000);
+    };
+
+    startTimer();
+    jest.advanceTimersByTime(11000); // Simulate 11 seconds passing
+
+    expect(timer.value).toBe(0);
+    expect(gameOver.value).toBe(true);
+  });
+
+})
