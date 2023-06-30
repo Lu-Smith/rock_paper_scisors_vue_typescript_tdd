@@ -24,7 +24,9 @@ const MainGameOver = {
             <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
         </div>
         </div>
-        <ResultContainer v-else />
+        <div v-else class="result-container">
+            <ResultContainer  />
+        </div>
         <ScoreContainer />
         <TimeComponent />
     `,
@@ -115,11 +117,24 @@ describe('MainGame', () => {
     })
    
     it('renders all elements for when gameOver is true', () => {
-        const wrapper = shallowMount(MainGameOver);
-     
-        const imagesContainerComputer = wrapper.find('div.images-container-computer')
-        expect(imagesContainerComputer.exists()).toBe(false)
-        const ResultComponent = wrapper.findComponent(ResultContainer)
-        expect(ResultComponent.exists()).toBe(true)
+        const wrapper = shallowMount(MainGameOver, {
+            global: {
+              components: {
+                TimerComponent,
+                TimeComponent,
+                ResultContainer,
+                ScoreContainer
+              }
+            }
+          });
+      
+          const gameContainer = wrapper.find('.game-container')
+          expect(gameContainer.exists()).toBe(false)
+      
+          const resultContainer = wrapper.find('.result-container')
+          expect(resultContainer.exists()).toBe(true)
+      
+          const ResultComponent = wrapper.findComponent(ResultContainer)
+          expect(ResultComponent.exists()).toBe(true)
+        })
     })
-})

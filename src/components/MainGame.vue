@@ -15,7 +15,7 @@
       <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
     </div>
   </div>
-  <div v-else>
+  <div v-else class="result-container">
     <ResultContainer  />
   </div>
   <ScoreContainer />
