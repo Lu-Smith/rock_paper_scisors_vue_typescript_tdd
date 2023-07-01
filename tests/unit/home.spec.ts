@@ -133,72 +133,6 @@ const HomePageConditionalStartGame = {
   }
 }
 
-const HomePageConditionalTimeOver = {
-  template: `
-  <TimerComponent :timer="timer" />
-  <div v-if="!displayGame">
-    <div v-if="!name" class="player">
-      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
-      <button class="confirm" type="submit" @click="submitName">Confirm</button>
-    </div>
-    <div v-else class="welcome-message">
-    <div v-if="!timeOver">
-      Welcome, {{ playerName }}!
-    </div>
-    <div v-else>
-      {{ playerName }}! Shape your destiny with confidence ( 10s ).
-    </div>
-  </div>
-    <button class="start-game" @click="startGame">Start</button>
-  </div>
-  <div v-else>
-    <MainGame />
-  </div>
-  `,
-  components: { MainGame },
-  setup() {
-    const playerName = ref('Max');
-    const name = ref(true);
-    const displayGame = ref(true);
-    const timer = ref(10);
-    const timerInterval = ref(0);
-    const timeOver = ref(true);
-
-    const submitName = () => {
-        name.value = true;
-    }
-
-    const startGame = () => {
-      displayGame.value = true
-      timer.value = 10;
-      startTimer()
-    }
-
-    const startTimer = () => {
-      timerInterval.value = setInterval(() => {
-       timer.value--;
-       if (timer.value === 0) {
-           clearInterval(timerInterval.value);
-           displayGame.value = false
-           timeOver.value = true
-         }
-      }, 1000)
-     }
-
-    return {
-      playerName,
-      name,
-      displayGame,
-      submitName,
-      startGame,
-      startTimer,
-      timer, 
-      timeOver
-    }
-  }
-}
-
-
 describe('HomePage', () => {
   beforeEach(() => {
     jest.useFakeTimers(); // Enable Jest's fake timers
@@ -303,8 +237,6 @@ describe('HomePage', () => {
     expect(timer.value).toBe(0);
     expect(timeOver.value).toBe(true);
     expect(displayGame.value).toBe(false);
-    
-    // expect(wrapper.find("div.welcome-message").exists()).toBe(true);
-    // expect(wrapper.find("div.welcome-message").text()).toContain(`${playerName.value}! Shape your destiny with confidence ( 10s ).`);
+   
 });
 })
