@@ -16,7 +16,7 @@
     <button class="start-game" @click="startGame">Start</button>
   </div>
   <div v-else>
-    <MainGame :playerName="playerName" @stopTimer="stopTimer"/>
+    <MainGame :playerName="playerName" />
   </div>
 </template>
 
@@ -57,10 +57,6 @@ export default {
      }, 1000)
     }
 
-    const stopTimer = () => {
-      clearInterval(timerInterval.value);
-    };
-
     return {
       playerName,
       name,
@@ -69,8 +65,7 @@ export default {
       startGame,
       startTimer,
       timer, 
-      timeOver,
-      stopTimer
+      timeOver
     }
   }
 }
