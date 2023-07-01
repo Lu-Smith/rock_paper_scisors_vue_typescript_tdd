@@ -183,7 +183,6 @@ describe('HomePage', () => {
     })
 
     it('renders MainGame component when start-game button is pressed', () => {
-    
       const wrapper = shallowMount(HomePageConditionalStartGame);
 
         //displays MainGame component
@@ -237,6 +236,6 @@ describe('HomePage', () => {
     expect(timer.value).toBe(0);
     expect(timeOver.value).toBe(true);
     expect(displayGame.value).toBe(false);
-   
 });
+
 })

@@ -25,22 +25,22 @@
 import TimeComponent from './TimeComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
-import { ref } from 'vue'
+import { ref, SetupContext } from 'vue'
 
 export default {
   name: "MainGame",
-  props: ['playerName'],
+  props: ['playerName', 'stopTimer'],
   components: {
     TimeComponent,
     ResultContainer,
     ScoreContainer
   },
-  setup() {
+setup(props: {playerName: string, stopTimer: () => void}, context: SetupContext ) {
     const gameOver = ref(false)
     
     const handlePlayerMove = (move: string) => {
         gameOver.value = true;
-        
+        context.emit('stop-timer');
     }
 
     return {

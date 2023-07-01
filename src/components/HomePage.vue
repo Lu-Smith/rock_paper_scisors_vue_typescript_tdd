@@ -1,5 +1,5 @@
 <template>
-  <TimerComponent :timer="timer" />
+  <TimerComponent :timer="timer"/>
   <div v-if="!displayGame">
     <div v-if="!name" class="player">
       <input type="text" v-model="playerName" placeholder="Enter your name..."/>
@@ -16,7 +16,7 @@
     <button class="start-game" @click="startGame">Start</button>
   </div>
   <div v-else>
-    <MainGame :playerName="playerName" :timer="timer"/>
+    <MainGame :playerName="playerName" @stopTimer="stopTimer"/>
   </div>
 </template>
 
@@ -55,8 +55,11 @@ export default {
           timeOver.value = true
         }
      }, 1000)
-
     }
+
+    const stopTimer = () => {
+      clearInterval(timerInterval.value);
+    };
 
     return {
       playerName,
@@ -66,12 +69,9 @@ export default {
       startGame,
       startTimer,
       timer, 
-      timeOver
+      timeOver,
+      stopTimer
     }
   }
 }
 </script>
-
-<style>
-
-</style>
