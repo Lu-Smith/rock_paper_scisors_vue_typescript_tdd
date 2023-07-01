@@ -15,5 +15,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     margin-top: 60px;
-  }
+}
+
+img {
+    width: 15%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
 
