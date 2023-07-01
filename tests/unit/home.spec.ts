@@ -13,7 +13,12 @@ const HomePageConditionalSetName = {
       <button class="confirm" type="submit" @click="submitName">Confirm</button>
     </div>
     <div v-else class="welcome-message">
-      Welcome, {{ playerName }}!
+      <div v-if="!timeOver">
+        Welcome, {{ playerName }}!
+      </div>
+      <div v-else>
+        {{ playerName }}! Shape your destiny with confidence ( 10s ).
+      </div>
     </div>
     <button class="start-game" @click="startGame">Start</button>
   </div>
@@ -24,7 +29,10 @@ const HomePageConditionalSetName = {
   setup() {
     const playerName = ref('Max');
     const name = ref(true);
-    const displayGame = ref(false)
+    const displayGame = ref(false);
+    const timer = ref(10);
+    const timerInterval = ref(0);
+    const timeOver = ref(false);
 
     const submitName = () => {
         name.value = true;
@@ -32,14 +40,30 @@ const HomePageConditionalSetName = {
 
     const startGame = () => {
       displayGame.value = true
+      timer.value = 10;
+      startTimer()
     }
+
+    const startTimer = () => {
+      timerInterval.value = setInterval(() => {
+       timer.value--;
+       if (timer.value === 0) {
+           clearInterval(timerInterval.value);
+           displayGame.value = false
+           timeOver.value = true
+         }
+      }, 1000)
+     }
 
     return {
       playerName,
       name,
       displayGame,
       submitName,
-      startGame
+      startGame,
+      startTimer,
+      timer, 
+      timeOver
     }
   }
 }
@@ -53,8 +77,13 @@ const HomePageConditionalStartGame = {
       <button class="confirm" type="submit" @click="submitName">Confirm</button>
     </div>
     <div v-else class="welcome-message">
+    <div v-if="!timeOver">
       Welcome, {{ playerName }}!
     </div>
+    <div v-else>
+      {{ playerName }}! Shape your destiny with confidence ( 10s ).
+    </div>
+  </div>
     <button class="start-game" @click="startGame">Start</button>
   </div>
   <div v-else>
@@ -65,7 +94,10 @@ const HomePageConditionalStartGame = {
   setup() {
     const playerName = ref('Max');
     const name = ref(true);
-    const displayGame = ref(true)
+    const displayGame = ref(true);
+    const timer = ref(10);
+    const timerInterval = ref(0);
+    const timeOver = ref(false);
 
     const submitName = () => {
         name.value = true;
@@ -73,14 +105,95 @@ const HomePageConditionalStartGame = {
 
     const startGame = () => {
       displayGame.value = true
+      timer.value = 10;
+      startTimer()
     }
+
+    const startTimer = () => {
+      timerInterval.value = setInterval(() => {
+       timer.value--;
+       if (timer.value === 0) {
+           clearInterval(timerInterval.value);
+           displayGame.value = false
+           timeOver.value = true
+         }
+      }, 1000)
+     }
 
     return {
       playerName,
       name,
       displayGame,
       submitName,
-      startGame
+      startGame,
+      startTimer,
+      timer, 
+      timeOver
+    }
+  }
+}
+
+const HomePageConditionalTimeOver = {
+  template: `
+  <TimerComponent :timer="timer" />
+  <div v-if="!displayGame">
+    <div v-if="!name" class="player">
+      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
+      <button class="confirm" type="submit" @click="submitName">Confirm</button>
+    </div>
+    <div v-else class="welcome-message">
+    <div v-if="!timeOver">
+      Welcome, {{ playerName }}!
+    </div>
+    <div v-else>
+      {{ playerName }}! Shape your destiny with confidence ( 10s ).
+    </div>
+  </div>
+    <button class="start-game" @click="startGame">Start</button>
+  </div>
+  <div v-else>
+    <MainGame />
+  </div>
+  `,
+  components: { MainGame },
+  setup() {
+    const playerName = ref('Max');
+    const name = ref(true);
+    const displayGame = ref(true);
+    const timer = ref(10);
+    const timerInterval = ref(0);
+    const timeOver = ref(true);
+
+    const submitName = () => {
+        name.value = true;
+    }
+
+    const startGame = () => {
+      displayGame.value = true
+      timer.value = 10;
+      startTimer()
+    }
+
+    const startTimer = () => {
+      timerInterval.value = setInterval(() => {
+       timer.value--;
+       if (timer.value === 0) {
+           clearInterval(timerInterval.value);
+           displayGame.value = false
+           timeOver.value = true
+         }
+      }, 1000)
+     }
+
+    return {
+      playerName,
+      name,
+      displayGame,
+      submitName,
+      startGame,
+      startTimer,
+      timer, 
+      timeOver
     }
   }
 }
@@ -167,8 +280,6 @@ describe('HomePage', () => {
   });
 
   it('should start the timer and decrement it until reaching 0', () => {
-    const wrapper = shallowMount(HomePage)
-
     const timer = ref(10);
     const timerInterval = ref(0);
     const timeOver = ref(false);
