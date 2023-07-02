@@ -3,45 +3,6 @@ import MainGame from "@/components/MainGame.vue";
 import TimeComponent from "@/components/TimeComponent.vue"
 import ResultContainer from '@/components/ResultContainer.vue'
 import ScoreContainer from '@/components/ScoreContainer.vue'
-import { ref } from 'vue'
-
-const MainGameOver = {
-    template: `
-        <div v-if="!gameOver" class="game-container">
-        <h2 class="player">Your move, {{ playerName }}</h2>
-        <div class="images-container-player">
-            <img class="rock" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
-            <img class="paper" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>
-            <img class="scissors" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
-        </div>
-        <h2 class="computer">Computer move</h2>
-        <h3>loading...</h3>
-        <div class="images-container-computer">
-            <img class="rock" src="../assets/images/rock.png" alt="rock" />
-            <img class="paper" src="../assets/images/paper.png" alt="paper" />
-            <img class="scissors" src="../assets/images/scissors.png" alt="scissors" />
-        </div>
-        </div>
-        <div v-else class="result-container">
-            <ResultContainer  />
-        </div>
-        <ScoreContainer />
-        <TimeComponent />
-    `,
-    setup() {
-      const gameOver = ref(true)
-  
-      const handlePlayerMove = (move: string) => {
-          gameOver.value = !gameOver.value
-          
-      }
-  
-      return {
-        gameOver,
-        handlePlayerMove
-      }
-    }
-}
 
 describe('MainGame', () => {
    
@@ -113,19 +74,15 @@ describe('MainGame', () => {
         expect(timeComponent.exists()).toBe(true)
     })
    
-    it('renders all elements for when gameOver is true', () => {
-        const wrapper = shallowMount(MainGameOver, {
-            global: {
-              components: {
-                TimeComponent,
-                ResultContainer,
-                ScoreContainer
-              }
-            }
-          });
+    it('renders all elements for when gameOver is true', async () => {
+        const wrapper = shallowMount(MainGame);
+
+          (wrapper.vm as any).gameOver = true
+
+          await wrapper.vm.$nextTick();
       
-          const gameContainer = wrapper.find('.game-container')
-          expect(gameContainer.exists()).toBe(false)
+          expect(wrapper.find('.game-container').exists()).toBe(false)
+
       
           const resultContainer = wrapper.find('.result-container')
           expect(resultContainer.exists()).toBe(true)

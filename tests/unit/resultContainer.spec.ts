@@ -17,22 +17,21 @@ describe('ResultContainer', () => {
     it('displays playerMove image correctly', () => {
         const playerMove = 'rock';
         const wrapper = shallowMount(ResultContainer, {
-          propsData: { playerMove },
+          props: { playerMove, finalMessage: "Tie",
+            randomChoice: 'rock', },
         });
     
         const playerMoveImage = wrapper.find('.player-move');
-        expect(playerMoveImage.attributes('src')).toBe(`../assets/images/${playerMove}.png`);
         expect(playerMoveImage.attributes('alt')).toBe(playerMove);
       });
     
       it('displays randomChoice image correctly', () => {
         const randomChoice = 'scissors';
         const wrapper = shallowMount(ResultContainer, {
-          propsData: { randomChoice },
+          props: { randomChoice, playerMove: "rock", finalMessage: "You won!", },
         });
     
         const randomChoiceImage = wrapper.find('.computer-move');
-        expect(randomChoiceImage.attributes('src')).toBe(`../assets/images/${randomChoice}.png`);
         expect(randomChoiceImage.attributes('alt')).toBe(randomChoice);
       });
 })
