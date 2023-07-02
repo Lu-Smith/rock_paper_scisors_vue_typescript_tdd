@@ -99,12 +99,9 @@ describe('MainGame', () => {
    
         const wrapper = shallowMount(MainGame);
 
-
         (wrapper.vm as any).gameOver = true;
 
         await wrapper.vm.$nextTick();
-    
-
 
         await wrapper.find('.play-again').trigger('click');
 

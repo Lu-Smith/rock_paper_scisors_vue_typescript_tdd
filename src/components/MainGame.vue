@@ -19,11 +19,9 @@
     <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
   </div>
   <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" />
-  <TimeComponent />
 </template>
 
 <script lang="ts">
-import TimeComponent from './TimeComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
 import { defineComponent } from 'vue'
@@ -32,10 +30,9 @@ export default defineComponent({
   name: "MainGame",
   props: {
     playerName: String,
-    playerChoice: Boolean
+    playerChoice: Boolean,
   },
   components: {
-    TimeComponent,
     ResultContainer,
     ScoreContainer
   },
@@ -84,7 +81,9 @@ export default defineComponent({
       }
     },
     playAgain() {
-      this.gameOver = false
+      this.gameOver = false;
+      this.$emit('play-again');
+      this.playerChoiceInternal = false;
     }
   },
   watch: {
