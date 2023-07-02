@@ -1,15 +1,16 @@
 <template>
     <div class="score-container">
     <h3 class="score">Score:</h3>
-    <h4 class="player-score">0</h4>
-    <h4 class="computer-score">0</h4>
-    <h4 class="total-score">0</h4>
+    <h4 class="player-score">You: {{ playerScore }}</h4>
+    <h4 class="computer-score">Computer: {{ computerScore }}</h4>
+    <h4 class="total-score">You won: {{ playerScore / (playerScore + computerScore) * 100 }}% games.</h4>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-
+  name: "ScoreContainer",
+  props: ['playerScore', 'computerScore'],
 }
 </script>
 

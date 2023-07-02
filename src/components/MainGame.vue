@@ -17,7 +17,7 @@
   <div v-else class="result-container">
     <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
   </div>
-  <ScoreContainer />
+  <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" />
   <TimeComponent />
 </template>
 
@@ -26,11 +26,6 @@ import TimeComponent from './TimeComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
 import { defineComponent } from 'vue'
-
-interface Props {
-  playerName: string;
-  playerChoice: boolean;
-}
 
 export default defineComponent({
   name: "MainGame",
@@ -50,7 +45,9 @@ export default defineComponent({
       playerMove: '',
       finalMessage: '',
       randomChoice: '',
-      computerChoices: ['rock', 'paper', 'scissors']
+      computerChoices: ['rock', 'paper', 'scissors'],
+      computerScore: 0,
+      playerScore: 0,
     }
   },
   methods: {
@@ -66,16 +63,22 @@ export default defineComponent({
       } else {
         if (this.playerMove === 'rock' && this.randomChoice === 'scissors') {
           this.finalMessage = 'You won!'
+          this.playerScore++
         } else if (this.playerMove === 'rock' && this.randomChoice === 'paper') {
           this.finalMessage = 'You lost!'
+          this.computerScore++
         } else if (this.playerMove === 'paper' && this.randomChoice === 'scissors') {
           this.finalMessage = 'You lost!'
+          this.computerScore++
         } else if (this.playerMove === 'paper' && this.randomChoice === 'rock') {
           this.finalMessage = 'You won!'
+          this.playerScore++
         } else if (this.playerMove === 'scissors' && this.randomChoice === 'rock') {
           this.finalMessage = 'You lost!'
+          this.computerScore++
         } else {
           this.finalMessage = 'You won!'
+          this.playerScore++
         }
       }
     } 
