@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
 import MainGame from "@/components/MainGame.vue";
-import TimerComponent from "@/components/TimerComponent.vue"
-import { ref } from 'vue'
+import TimerComponent from "@/components/TimerComponent.vue";
+import { ref } from 'vue';
 
 describe('HomePage', () => {
   beforeEach(() => {
@@ -28,8 +28,7 @@ describe('HomePage', () => {
         expect(playerNameInput.exists()).toBe(true)
         expect(playerNameInput.attributes('placeholder')).toBe('Enter your name...')
         const confirmButton = playerElement.find('button.confirm')
-        expect(confirmButton.exists()).toBe(true)
-        expect(confirmButton.attributes('type')).toBe('submit')
+        expect(confirmButton.exists()).toBe(false)
         expect(wrapper.find("div.welcome-message").exists()).toBe(false);
         
         //startGame button

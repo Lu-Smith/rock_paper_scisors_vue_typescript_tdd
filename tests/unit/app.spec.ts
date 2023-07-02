@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import AppVue from "@/App.vue";
 import HomePage from "@/components/HomePage.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import TimeComponent from "@/components/TimeComponent.vue";
 
 describe('App.vue', () => {
     it('renders correctly all components', () => {
@@ -19,6 +20,9 @@ describe('App.vue', () => {
         //FooterComponent
         const footerElement = wrapper.findComponent(FooterComponent)
         expect(footerElement.exists()).toBe(true)
+        //render TimerComponent
+        const timeComponent = wrapper.findComponent(TimeComponent)
+        expect(timeComponent.exists()).toBe(true)
         
     })
 })

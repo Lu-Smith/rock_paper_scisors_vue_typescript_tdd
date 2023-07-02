@@ -1,6 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
 import MainGame from "@/components/MainGame.vue";
-import TimeComponent from "@/components/TimeComponent.vue"
 import ResultContainer from '@/components/ResultContainer.vue'
 import ScoreContainer from '@/components/ScoreContainer.vue'
 
@@ -67,11 +66,6 @@ describe('MainGame', () => {
                 // does not render ResultComponent
                 const ResultComponent = wrapper.findComponent(ResultContainer)
                 expect(ResultComponent.exists()).toBe(false)
-        
-
-        //render TimerComponent
-        const timeComponent = wrapper.findComponent(TimeComponent)
-        expect(timeComponent.exists()).toBe(true)
     })
    
     it('renders all elements for when gameOver is true', async () => {

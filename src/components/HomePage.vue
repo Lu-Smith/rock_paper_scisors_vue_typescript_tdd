@@ -58,7 +58,6 @@ export default {
     const startTimer = () => {
       timer.value = 10
       timerInterval.value = setInterval(() => {
-  
       timer.value--;
         if(playerChoice.value === true) {
         clearInterval(timerInterval.value);
