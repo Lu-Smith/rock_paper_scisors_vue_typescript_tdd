@@ -1,4 +1,4 @@
-import { shallowMount, mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import HomePage from "@/components/HomePage.vue";
 import MainGame from "@/components/MainGame.vue";
 import TimerComponent from "@/components/TimerComponent.vue"
@@ -70,7 +70,7 @@ describe('HomePage', () => {
 });
 
 it('submits name correctly', async () => {
-  const wrapper = mount(HomePage);
+  const wrapper = shallowMount(HomePage);
 
   await wrapper.find('input[type="text"]').setValue('John');
   await wrapper.find('.confirm').trigger('click');
@@ -90,9 +90,9 @@ it('submits name correctly', async () => {
 })
 
 it('starts the game correctly', async () => {
-  const wrapper = mount(HomePage);
+  const wrapper = shallowMount(HomePage);
 
-  wrapper.vm.playerName = 'John Doe';
+  (wrapper.vm as any).playerName = 'John Doe';
   await wrapper.vm.$nextTick();
 
   await wrapper.find('.start-game').trigger('click');
