@@ -54,6 +54,7 @@ export default {
       timer.value--;
         if(playerChoice.value === true) {
         clearInterval(timerInterval.value);
+        timer.value = timer.value + 1;
       }
 
       if (timer.value === 0) {

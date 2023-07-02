@@ -53,7 +53,6 @@ export default defineComponent({
     handlePlayerMove(move: string) {
       this.gameOver = true;
       this.playerChoiceInternal = true;
-      this.$emit('playerChoice', this.playerChoiceInternal);
     }
   },
   watch: {
