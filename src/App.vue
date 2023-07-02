@@ -9,6 +9,12 @@ import { defineComponent } from 'vue';
 import HomePage from './components/HomePage.vue';
 import FooterComponent from './components/FooterComponent.vue';
 
+interface Props {
+  // Define the props used in HomePage component
+  playerName: string;
+  playerChoice: boolean;
+}
+
 
 export default defineComponent({
   name: 'App',

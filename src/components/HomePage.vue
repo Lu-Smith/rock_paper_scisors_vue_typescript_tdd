@@ -16,7 +16,7 @@
     <button class="start-game" @click="startGame">Start</button>
   </div>
   <div v-else>
-    <MainGame :playerName="playerName" />
+    <MainGame :playerName="playerName"  v-model:playerChoice="playerChoice" />
   </div>
 </template>
 
@@ -33,8 +33,10 @@ export default {
     const name = ref(false);
     const displayGame = ref(false);
     const timer = ref(10);
-    const timerInterval = ref(0)
-    const timeOver = ref(false)
+    const timerInterval = ref(0);
+    const timeOver = ref(false);
+    const playerChoice = ref(false);
+    
 
     const submitName = () => {
         name.value = true;
@@ -47,14 +49,19 @@ export default {
     }
 
     const startTimer = () => {
-     timerInterval.value = setInterval(() => {
+      timerInterval.value = setInterval(() => {
+  
       timer.value--;
+        if(playerChoice.value === true) {
+        clearInterval(timerInterval.value);
+      }
+
       if (timer.value === 0) {
           clearInterval(timerInterval.value);
           displayGame.value = false
           timeOver.value = true
-        }
-     }, 1000)
+      }
+     }, 1000) 
     }
 
     return {
@@ -65,7 +72,8 @@ export default {
       startGame,
       startTimer,
       timer, 
-      timeOver
+      timeOver,
+      playerChoice
     }
   }
 }

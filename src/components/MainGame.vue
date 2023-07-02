@@ -25,30 +25,44 @@
 import TimeComponent from './TimeComponent.vue'
 import ResultContainer from './ResultContainer.vue'
 import ScoreContainer from './ScoreContainer.vue'
-import { ref } from 'vue'
+import { defineComponent } from 'vue'
 
-export default {
+interface Props {
+  playerName: string;
+  playerChoice: boolean;
+}
+
+export default defineComponent({
   name: "MainGame",
-  props: ['playerName'],
+  props: {
+    playerName: String,
+    playerChoice: Boolean
+  },
   components: {
     TimeComponent,
     ResultContainer,
     ScoreContainer
   },
-setup() {
-    const gameOver = ref(false)
-    
-    const handlePlayerMove = (move: string) => {
-        gameOver.value = true;
-    }
-
+  data() {
     return {
-      gameOver,
-      handlePlayerMove
+      gameOver: false,
+      playerChoiceInternal: false
+    }
+  },
+  methods: {
+    handlePlayerMove(move: string) {
+      this.gameOver = true;
+      this.playerChoiceInternal = true;
+      this.$emit('playerChoice', this.playerChoiceInternal);
+    }
+  },
+  watch: {
+    playerChoiceInternal(newVal) {
+      this.$emit('update:playerChoice', newVal);
     }
   }
+})
 
-}
 </script>
 
 <style>
