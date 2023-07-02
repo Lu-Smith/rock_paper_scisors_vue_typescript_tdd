@@ -1,8 +1,10 @@
 <template>
   <h1>Rock Paper Scissors</h1>
   <HomePage />
-  <FooterComponent />
-  <TimeComponent />
+  <footer>
+    <FooterComponent />
+    <TimeComponent />
+  </footer>
 </template>
 
 <script lang="ts">

@@ -10,6 +10,8 @@ describe('App.vue', () => {
         const titleElement = wrapper.find('h1')
         expect(titleElement.exists()).toBe(true)
         expect(titleElement.text()).toBe('Rock Paper Scissors')
+        const footerElement = wrapper.find('footer')
+        expect(footerElement.exists()).toBe(true)
     })
 
     it('renders all components', () => {
