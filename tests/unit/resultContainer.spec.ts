@@ -36,12 +36,12 @@ describe('ResultContainer', () => {
         expect(randomChoiceImage.attributes('alt')).toBe(randomChoice);
       });
     
-      // it('generates correct image path', () => {
-      //   const wrapper = shallowMount(ResultContainer);
+      it('generates correct image path', () => {
+        const wrapper = shallowMount(ResultContainer);
     
-      //   const move = 'paper';
-      //   const imagePath = (wrapper.vm as any).getImagePath(move);
+        const move = 'paper';
+        const imagePath = (wrapper.vm as any).getImagePath(move);
     
-      //   expect(imagePath).toBe(`../assets/images/${move}.png`);
-      // });
+        expect(imagePath).toBe(`../assets/images/${move}.png`);
+      });
 })

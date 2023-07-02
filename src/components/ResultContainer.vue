@@ -10,7 +10,7 @@ export default {
   props: ['finalMessage', 'randomChoice', 'playerMove'],
   methods: {
     getImagePath(move: string): string {
-      return require(`../assets/images/${move}.png`);
+      return `../assets/images/${move}.png`;
     },
   },
 }
