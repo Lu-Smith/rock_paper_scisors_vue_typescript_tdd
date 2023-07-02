@@ -33,6 +33,7 @@ const MainGameOver = {
   
       const handlePlayerMove = (move: string) => {
           gameOver.value = !gameOver.value
+          
       }
   
       return {

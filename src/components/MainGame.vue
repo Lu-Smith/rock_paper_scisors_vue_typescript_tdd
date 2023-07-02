@@ -15,7 +15,7 @@
     </div>
   </div>
   <div v-else class="result-container">
-    <ResultContainer  />
+    <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
   </div>
   <ScoreContainer />
   <TimeComponent />
@@ -46,14 +46,39 @@ export default defineComponent({
   data() {
     return {
       gameOver: false,
-      playerChoiceInternal: false
+      playerChoiceInternal: false,
+      playerMove: '',
+      finalMessage: '',
+      randomChoice: '',
+      computerChoices: ['rock', 'paper', 'scissors']
     }
   },
   methods: {
     handlePlayerMove(move: string) {
       this.gameOver = true;
       this.playerChoiceInternal = true;
-    }
+      this.playerMove = move;
+      const randomIndex = Math.floor(Math.random() * this.computerChoices.length);
+      this.randomChoice = this.computerChoices[randomIndex];
+
+      if (this.playerMove === this.randomChoice) {
+        this.finalMessage = 'Tie'
+      } else {
+        if (this.playerMove === 'rock' && this.randomChoice === 'scissors') {
+          this.finalMessage = 'You won!'
+        } else if (this.playerMove === 'rock' && this.randomChoice === 'paper') {
+          this.finalMessage = 'You lost!'
+        } else if (this.playerMove === 'paper' && this.randomChoice === 'scissors') {
+          this.finalMessage = 'You lost!'
+        } else if (this.playerMove === 'paper' && this.randomChoice === 'rock') {
+          this.finalMessage = 'You won!'
+        } else if (this.playerMove === 'scissors' && this.randomChoice === 'rock') {
+          this.finalMessage = 'You lost!'
+        } else {
+          this.finalMessage = 'You won!'
+        }
+      }
+    } 
   },
   watch: {
     playerChoiceInternal(newVal) {
