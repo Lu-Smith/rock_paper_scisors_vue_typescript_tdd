@@ -95,4 +95,13 @@ describe('MainGame', () => {
           expect(ResultComponent.exists()).toBe(true)
     })
 
+    it('renders previous scores and start the game again after clicking the play-again button', async () => {
+        const wrapper = shallowMount(MainGame)
+
+        await wrapper.find('.play-again').trigger('click');
+
+        expect(wrapper.vm.gameOver).toBe(false)
+
+    })
+
 })
