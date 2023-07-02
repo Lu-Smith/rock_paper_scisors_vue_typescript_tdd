@@ -16,8 +16,15 @@ export default {
       const hours = currentDate.getHours();
       const minutes = currentDate.getMinutes();
       const seconds = currentDate.getSeconds();
+      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      const day = days[currentDate.getDate()];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const month = months[currentDate.getMonth()];
+      const year = currentDate.getFullYear();
 
-      currentTime.value = `${hours}:${minutes}:${seconds}`;
+
+
+      currentTime.value = `${hours}:${minutes}:${seconds}, today is ${day}, ${month} ${year}`;
     };
 
     onMounted(() => {
