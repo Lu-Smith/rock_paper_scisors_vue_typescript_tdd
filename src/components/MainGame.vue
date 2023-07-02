@@ -15,6 +15,7 @@
     </div>
   </div>
   <div v-else class="result-container">
+    <button class="play-again">play again</button>
     <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
   </div>
   <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" />

@@ -86,6 +86,10 @@ describe('MainGame', () => {
       
           const resultContainer = wrapper.find('.result-container')
           expect(resultContainer.exists()).toBe(true)
+
+          const playAgainButton = wrapper.find('button.play-again')
+          expect(playAgainButton.exists()).toBe(true)
+          expect(playAgainButton.text()).toBe('play again')
       
           const ResultComponent = wrapper.findComponent(ResultContainer)
           expect(ResultComponent.exists()).toBe(true)
