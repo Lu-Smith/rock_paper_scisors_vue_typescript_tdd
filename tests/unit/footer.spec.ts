@@ -6,7 +6,7 @@ describe('FooterComponent', () => {
         const wrapper = shallowMount(FooterComponent)
 
         //h3 element
-        const footerElement = wrapper.find('h3')
+        const footerElement = wrapper.find('h4')
         expect(footerElement.exists()).toBe(true)
         expect(footerElement.text()).toBe('This game was coded by Luna Smith and is available as an open-source project on GitHub.')
         

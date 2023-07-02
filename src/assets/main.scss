@@ -1,4 +1,6 @@
 @import './_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto:ital,wght@0,400;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +8,34 @@
 }
 
 body {
-    color: $color;
-    background-color: $background-color;
+    color: $color-basic;
+    background-image: url('./images/blob-scatter-haikei.svg');
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-basic;
 }
 
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    margin-top: 60px;
+}
+
+h1 {
+    font-family: 'Caprasimo', cursive;
+    letter-spacing: 2px;
+    background-color: $background-color-basic;
+    padding: $padding-basic;
+    font-size: $font-size-large;
+}
+
+h3 {
+    padding: $padding-basic;
+}
+
+h4 {
+    padding: $padding-small;
+    font-size: $font-size-small;
 }
 
 img {
