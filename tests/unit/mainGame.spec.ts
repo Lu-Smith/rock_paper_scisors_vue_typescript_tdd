@@ -96,7 +96,15 @@ describe('MainGame', () => {
     })
 
     it('renders previous scores and start the game again after clicking the play-again button', async () => {
-        const wrapper = shallowMount(MainGame)
+   
+        const wrapper = shallowMount(MainGame);
+
+
+        (wrapper.vm as any).gameOver = true;
+
+        await wrapper.vm.$nextTick();
+    
+
 
         await wrapper.find('.play-again').trigger('click');
 

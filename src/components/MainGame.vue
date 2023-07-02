@@ -15,7 +15,7 @@
     </div>
   </div>
   <div v-else class="result-container">
-    <button class="play-again">play again</button>
+    <button class="play-again" @click="playAgain">play again</button>
     <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
   </div>
   <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" />
@@ -82,7 +82,10 @@ export default defineComponent({
           this.playerScore++
         }
       }
-    } 
+    },
+    playAgain() {
+      this.gameOver = false
+    }
   },
   watch: {
     playerChoiceInternal(newVal) {
