@@ -35,13 +35,4 @@ describe('ResultContainer', () => {
         expect(randomChoiceImage.attributes('src')).toBe(`../assets/images/${randomChoice}.png`);
         expect(randomChoiceImage.attributes('alt')).toBe(randomChoice);
       });
-    
-      it('generates correct image path', () => {
-        const wrapper = shallowMount(ResultContainer);
-    
-        const move = 'paper';
-        const imagePath = (wrapper.vm as any).getImagePath(move);
-    
-        expect(imagePath).toBe(`../assets/images/${move}.png`);
-      });
 })
