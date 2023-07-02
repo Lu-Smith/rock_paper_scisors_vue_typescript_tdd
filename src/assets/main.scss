@@ -11,14 +11,16 @@ body {
     color: $color-basic;
     background-image: url('./images/blob-scatter-haikei.svg');
     background-size: cover;
-    font-family: 'Roboto', sans-serif;
-    font-size: $font-size-basic;
+
 }
 
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
 }
 
 h1 {
@@ -27,20 +29,48 @@ h1 {
     background-color: $background-color-basic;
     padding: $padding-basic;
     font-size: $font-size-large;
+    line-height: $line-height-large;
 }
 
 h3 {
-    padding: $padding-basic;
+    padding: $padding-small;
 }
 
 h4 {
     padding: $padding-small;
     font-size: $font-size-small;
+    line-height: $line-height-small;
 }
 
 img {
     width: 15%;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+
+input {
+    padding: $padding-button-basic;
+    border-radius: $border-radius-basic;
+    border: none;
+    background-color: $background-color-basic;
+    color: $color-basic;
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
+}
+
+button {
+    border: none;
+    border-radius: $border-radius-basic;
+    color: $color-basic;
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
+    padding: $padding-button-basic;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 

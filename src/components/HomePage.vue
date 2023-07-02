@@ -1,8 +1,8 @@
 <template>
   <TimerComponent :timer="timer"/>
   <div v-if="!displayGame">
-    <div v-if="!name" class="player">
-      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
+    <div v-if="!name" :class="playerName ? 'player' : ''">
+      <input type="text" v-model="playerName" placeholder="Enter your name..." />
       <button v-if="playerName.length > 0" class="confirm" type="submit" @click="submitName">Confirm</button>
     </div>
     <div v-else class="welcome-message">
@@ -87,3 +87,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '../assets/variables';
+
+.player {
+  background-color: $background-color-basic;
+  width: 400px;
+  border-radius: $border-radius-basic;
+  box-shadow: $box-shadow-basic;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  transition: 200ms all ease-in-out;
+}
+
+.confirm {
+  background-color: transparent;
+}
+</style>
