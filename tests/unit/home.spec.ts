@@ -14,16 +14,21 @@ describe('HomePage', () => {
     jest.useRealTimers(); // Restore real timers
   });
 
-    it('renders all elements correctly  when name is not set', () => {
-        const wrapper = shallowMount(HomePage)
+    it('renders all elements correctly  when name is not set', async () => {
+        const wrapper = shallowMount(HomePage);
 
         //render TimerComponent
-        const timerComponent = wrapper.findComponent(TimerComponent)
-        expect(timerComponent.exists()).toBe(true)
+        const timerComponent = wrapper.findComponent(TimerComponent);
+        expect(timerComponent.exists()).toBe(true);
         
         //players name
-        const playerElement = wrapper.find('div.player')
-        expect(playerElement.exists()).toBe(true)
+        (wrapper.vm as any).playerName = true;
+        await wrapper.vm.$nextTick();
+       
+        expect(wrapper.vm.playerName).toBe(true);
+
+        const playerElement = wrapper.find('div.player');
+
         const playerNameInput = playerElement.find("input[type='text']")
         expect(playerNameInput.exists()).toBe(true)
         expect(playerNameInput.attributes('placeholder')).toBe('Enter your name...')
