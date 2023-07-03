@@ -107,4 +107,8 @@ export default {
 .confirm {
   background-color: transparent;
 }
+
+.start-game {
+  margin-top: 20px;
+}
 </style>

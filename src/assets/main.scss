@@ -21,6 +21,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: $font-size-basic;
     line-height: $line-height-basic;
+    letter-spacing: 1px;
 }
 
 h1 {
@@ -40,6 +41,22 @@ h4 {
     padding: $padding-small;
     font-size: $font-size-small;
     line-height: $line-height-small;
+}
+
+a {
+    text-decoration-color: rgb(52, 231, 157);
+    color: rgb(64, 82, 74);
+    text-decoration-thickness: 3px;
+    text-decoration-style: wavy;
+    transition: 200ms all ease-in-out;
+}
+
+a:hover {
+    text-decoration-color: rgb(33, 71, 55);
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
+    color: rgb(52, 231, 157);
+    padding-bottom: 5px;
 }
 
 img {
@@ -65,6 +82,8 @@ button {
     font-size: $font-size-basic;
     line-height: $line-height-basic;
     padding: $padding-button-basic;
+    background-color: rgba(6, 41, 6, 0.8);
+    letter-spacing: 1px;
 }
 
 footer {
