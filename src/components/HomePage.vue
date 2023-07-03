@@ -108,6 +108,11 @@ export default {
 
 .confirm {
   background-color: transparent;
+  box-shadow: none;
+}
+
+.confirm:hover {
+  background-color: transparent;
 }
 
 .start-game {

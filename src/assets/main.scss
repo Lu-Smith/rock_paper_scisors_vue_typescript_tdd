@@ -85,6 +85,14 @@ button {
     padding: $padding-button-basic;
     background-color: $background-color-dark;
     letter-spacing: 1px;
+    box-shadow: $box-shadow-basic;
+}
+
+button:hover {
+    border-radius: $border-radius-large;
+    color: $color-decor;
+    background-color: $background-color-basic;
+    box-shadow: none;
 }
 
 footer {
