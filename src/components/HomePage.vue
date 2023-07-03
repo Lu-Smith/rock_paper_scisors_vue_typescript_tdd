@@ -42,12 +42,14 @@ export default {
 
     const submitName = () => {
         name.value = true;
+        remider.value = false
     }
 
     const startGame = () => {
       if (playerName.value.length > 0) {
         displayGame.value = true;
         timer.value = 10;
+        remider.value = false
         startTimer()
       } else {
         remider.value = true
