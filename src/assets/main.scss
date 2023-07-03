@@ -33,8 +33,13 @@ h1 {
     line-height: $line-height-large;
 }
 
-h3 {
+h2, h3 {
     padding: $padding-small;
+}
+
+h2 {
+    font-size: $font-size-basic;
+    line-height: $line-height-basic;
 }
 
 h4 {

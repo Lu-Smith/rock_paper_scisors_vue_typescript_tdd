@@ -1,6 +1,6 @@
 <template>
   <div v-if="!gameOver" class="game-container">
-    <h2 class="player">Your move, {{ playerName }}</h2>
+    <h2 class="player-message">Your move, {{ playerName }}</h2>
     <div class="images-container-player">
       <img class="rock" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
       <img class="paper" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>

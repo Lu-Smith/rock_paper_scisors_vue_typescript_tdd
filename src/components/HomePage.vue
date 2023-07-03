@@ -119,6 +119,10 @@ export default {
   margin-top: 20px;
 }
 
+.welcome-message {
+  text-shadow: $box-shadow-basic;
+}
+
 .reminder {
   font-style: italic;
 }

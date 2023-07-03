@@ -14,7 +14,7 @@ describe('MainGame', () => {
 
         //render player elements
         const gameContainer = wrapper.find('div.game-container')
-            const instractionElement = gameContainer.find('h2.player')
+            const instractionElement = gameContainer.find('h2.player-message')
             expect(instractionElement.exists()).toBe(true)
             expect(instractionElement.text()).toBe(`Your move, Max`)
             const imagesContainerPlayer = gameContainer.find('div.images-container-player')
