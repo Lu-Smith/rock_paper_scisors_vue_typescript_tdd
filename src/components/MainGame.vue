@@ -2,9 +2,9 @@
   <div v-if="!gameOver" class="game-container">
     <h2 class="player-message">Your move, {{ playerName }}</h2>
     <div class="images-container-player">
-      <img class="rock" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
-      <img class="paper" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>
-      <img class="scissors" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
+      <img class="rock player-choice" src="../assets/images/rock.png" alt="rock" @click="handlePlayerMove('rock')"/>
+      <img class="paper player-choice" src="../assets/images/paper.png" alt="paper" @click="handlePlayerMove('paper')"/>
+      <img class="scissors player-choice" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
     </div>
     <h2 class="computer">Computer move</h2>
     <h3>loading...</h3>
@@ -95,6 +95,12 @@ export default defineComponent({
 
 </script>
 
-<style>
+<style lang="scss">
+@import '../assets/variables';
+
+.player-choice:hover {
+  background-color: $background-color-basic;
+    border-radius: $border-radius-large;
+}
 
 </style>
