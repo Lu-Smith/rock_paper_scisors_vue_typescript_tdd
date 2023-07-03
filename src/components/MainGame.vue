@@ -7,7 +7,7 @@
       <img class="scissors player-choice" src="../assets/images/scissors.png" alt="scissors"  @click="handlePlayerMove('scissors')"/>
     </div>
     <h2 class="computer">Computer move</h2>
-    <h3>loading...</h3>
+    <img class="loading" src="../assets/images/loading.png" alt="loading"/>
     <div class="images-container-computer">
       <img class="rock" src="../assets/images/rock.png" alt="rock" />
       <img class="paper" src="../assets/images/paper.png" alt="paper" />
@@ -101,6 +101,11 @@ export default defineComponent({
 .player-choice:hover {
   background-color: $background-color-basic;
     border-radius: $border-radius-large;
+}
+
+.loading {
+  width: 30px;
+  height: 30px;
 }
 
 </style>

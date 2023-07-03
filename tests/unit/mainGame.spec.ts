@@ -39,7 +39,7 @@ describe('MainGame', () => {
             const computerElement = wrapper.find('h2.computer')
             expect(computerElement.exists()).toBe(true)
             expect(computerElement.text()).toBe(`Computer move`)
-            const loadingElement = wrapper.find('h3')
+            const loadingElement = wrapper.find('img.loading')
             expect(loadingElement.exists()).toBe(true)
             const imagesContainerComputer = wrapper.find('div.images-container-computer')
             expect(imagesContainerComputer.exists()).toBe(true)
