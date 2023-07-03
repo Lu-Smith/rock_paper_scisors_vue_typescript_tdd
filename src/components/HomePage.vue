@@ -14,7 +14,7 @@
       </div>
     </div>
     <button class="start-game" @click="startGame">Start</button>
-    <div v-if="remider" class="remider">Please enter your name</div>
+    <div v-if="reminder" class="reminder">Please enter your name</div>
   </div>
   <div v-else>
     <MainGame :playerName="playerName"  v-model:playerChoice="playerChoice" @play-again="startTimer" />
@@ -37,22 +37,22 @@ export default {
     const timerInterval = ref(0);
     const timeOver = ref(false);
     const playerChoice = ref(false);
-    const remider = ref(false)
+    const reminder = ref(false)
 
 
     const submitName = () => {
         name.value = true;
-        remider.value = false
+        reminder.value = false
     }
 
     const startGame = () => {
       if (playerName.value.length > 0) {
         displayGame.value = true;
         timer.value = 10;
-        remider.value = false
+        reminder.value = false
         startTimer()
       } else {
-        remider.value = true
+        reminder.value = true
       }
  
     }
@@ -84,7 +84,7 @@ export default {
       timer, 
       timeOver,
       playerChoice,
-      remider
+      reminder,
     }
   }
 }
@@ -112,5 +112,9 @@ export default {
 
 .start-game {
   margin-top: 20px;
+}
+
+.reminder {
+  font-style: italic;
 }
 </style>

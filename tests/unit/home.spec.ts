@@ -21,7 +21,7 @@ describe('HomePage', () => {
         const timerComponent = wrapper.findComponent(TimerComponent);
         expect(timerComponent.exists()).toBe(true);
         
-        //players name
+        //playerName set to true name
         (wrapper.vm as any).playerName = true;
         await wrapper.vm.$nextTick();
        
