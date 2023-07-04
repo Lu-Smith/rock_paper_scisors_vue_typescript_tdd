@@ -1,5 +1,5 @@
 <template>
-  <h3><span>{{ currentTime }}</span> today is <span>{{ currentDay }}</span>, {{ currentYear }}</h3>
+  <h3 class="time"><span>{{ currentTime }}</span> Today is <span>{{ currentDay }}</span>, {{ currentYear }}</h3>
 </template>
 
 
@@ -64,6 +64,19 @@ export default {
 
 <style lang="scss">
 @import '../assets/variables';
+
+.time {
+  background-color: $background-color-basic;
+  color: $color-basic;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  width: 400px;
+  margin: 0 auto;
+  border-top-left-radius: $border-radius-large;
+  border-top-right-radius: $border-radius-large;
+  padding-top: $padding-basic;
+}
+
 span {
     color: $color-decor;
 }
