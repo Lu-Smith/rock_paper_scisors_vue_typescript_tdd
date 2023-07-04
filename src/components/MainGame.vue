@@ -103,9 +103,9 @@ export default defineComponent({
 <style lang="scss">
 @import '../assets/variables';
 
-.player-choice:hover {
+.player-choice:hover, .result-move {
   background-color: $background-color-basic;
-    border-radius: $border-radius-large;
+  border-radius: $border-radius-large;
 }
 
 @keyframes rotateLoading {

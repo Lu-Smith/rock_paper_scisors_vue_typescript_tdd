@@ -18,14 +18,14 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-family-basic;
     font-size: $font-size-basic;
     line-height: $line-height-basic;
     letter-spacing: 1px;
 }
 
 h1 {
-    font-family: 'Caprasimo', cursive;
+    font-family: $font-family-title;
     letter-spacing: 2px;
     background-color: $background-color-basic;
     padding: $padding-basic;
@@ -53,7 +53,7 @@ h5 {
     color: $background-color-dark;
     font-size: $font-size-large;
     line-height: $line-height-large;
-    font-family: 'Caprasimo', cursive;
+    font-family: $font-family-title;
     letter-spacing: 2px;
 }
 

@@ -1,7 +1,9 @@
 <template>
   <h5>{{ finalMessage }}</h5>
-  <div class="result-move">{{ playerName }}: <img :src="require(`../assets/images/${playerMove}.png`)" :alt="playerMove" class="player-move"/> </div>
-  <div class="result-move">Computer:<img :src="require(`../assets/images/${randomChoice}.png`)" :alt="randomChoice" class="computer-move" /> </div>
+  <div class="results">
+    <div class="result-move"><div>{{ playerName }}</div> <img :src="require(`../assets/images/${playerMove}.png`)" :alt="playerMove" class="player-move"/> </div>
+    <div class="result-move"><div>Computer</div><img :src="require(`../assets/images/${randomChoice}.png`)" :alt="randomChoice" class="computer-move" /> </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,6 +31,35 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../assets/variables';
+
+.results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: $margin-top-basic;
+}
+
+.result-move {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: $margin-basic;
+
+  div {
+    color: $color-decor;
+    font-family: $font-family-title;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
 
 </style>
