@@ -29,12 +29,10 @@ export default {
 
 <style lang="scss">
 @import '../assets/variables';
+@import '../assets/mixins';
 
 .score-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  @include centerElement(row, space-around);
   background-color: $background-color-basic;
   position: fixed;
   bottom: 110px;

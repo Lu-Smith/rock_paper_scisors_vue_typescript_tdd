@@ -1,5 +1,5 @@
 <template>
-  <h3>{{ timer }}s</h3>
+  <h3 :class="timer < 5 ? 'timer' : ''" >{{ timer }}s</h3>
 </template>
 
 <script lang="ts">
@@ -10,6 +10,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" >
+@import '../assets/variables';
+@import '../assets/mixins';
 
+.timer {
+  color: $color-warning;
+}
 </style>

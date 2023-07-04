@@ -92,16 +92,14 @@ export default {
 
 <style lang="scss">
 @import '../assets/variables';
+@import '../assets/mixins';
 
 .player {
   background-color: $background-color-basic;
   width: 400px;
   border-radius: $border-radius-basic;
   box-shadow: $box-shadow-basic;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  @include centerElement(row, space-between);
   margin: 0 auto;
   transition: 200ms all ease-in-out;
 }
@@ -125,5 +123,7 @@ export default {
 
 .reminder {
   font-style: italic;
+  color: $color-warning;
+  margin-top: $margin-top-basic;
 }
 </style>

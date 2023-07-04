@@ -33,22 +33,17 @@ export default {
 
 <style lang="scss">
 @import '../assets/variables';
+@import '../assets/mixins';
 
 .results {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  @include centerElement(row, center);
   margin-top: $margin-top-basic;
 }
 
 .result-move {
   width: 300px;
   height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  @include centerElement(column, center);
   margin: $margin-basic;
 
   div {
