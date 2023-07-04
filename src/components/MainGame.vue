@@ -16,9 +16,9 @@
   </div>
   <div v-else class="result-container">
     <button class="play-again" @click="playAgain">play again</button>
-    <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove"/>
+    <ResultContainer :finalMessage="finalMessage" :randomChoice="randomChoice" :playerMove="playerMove" :playerName="playerName"/>
   </div>
-  <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" />
+  <ScoreContainer :computerScore="computerScore" :playerScore="playerScore" :playerName="playerName"/>
 </template>
 
 <script lang="ts">
@@ -29,9 +29,14 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: "MainGame",
   props: {
-    playerName: String,
-    playerChoice: Boolean,
+  playerName: {
+    type: String,
+    default: ''
   },
+  playerChoice: {
+    type: Boolean,
+  },
+},
   components: {
     ResultContainer,
     ScoreContainer

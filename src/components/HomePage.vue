@@ -17,7 +17,7 @@
     <div v-if="reminder" class="reminder">Please enter your name</div>
   </div>
   <div v-else>
-    <MainGame :playerName="playerName"  v-model:playerChoice="playerChoice" @play-again="startTimer" />
+    <MainGame :player-name="playerName"  v-model:playerChoice="playerChoice" @play-again="startTimer" />
   </div>
 </template>
 

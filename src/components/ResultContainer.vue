@@ -1,6 +1,6 @@
 <template>
   <h5>{{ finalMessage }}</h5>
-  <div class="result-move">You: <img :src="require(`../assets/images/${playerMove}.png`)" :alt="playerMove" class="player-move"/> </div>
+  <div class="result-move">{{ playerName }}: <img :src="require(`../assets/images/${playerMove}.png`)" :alt="playerMove" class="player-move"/> </div>
   <div class="result-move">Computer:<img :src="require(`../assets/images/${randomChoice}.png`)" :alt="randomChoice" class="computer-move" /> </div>
 </template>
 
@@ -18,6 +18,10 @@ export default {
       required: true,
     },
     playerMove: {
+      type: String,
+      required: true,
+    },
+    playerName: {
       type: String,
       required: true,
     },
