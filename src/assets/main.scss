@@ -127,6 +127,9 @@ footer {
     right: 0;
     color: $background-color-dark;
     background-color: $background-color-light;
+    border-top-left-radius: $border-radius-large;
+    border-top-right-radius: $border-radius-large;
+    padding-top: $padding-basic;
 }
 
 

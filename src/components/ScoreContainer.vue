@@ -35,7 +35,7 @@ export default {
   @include centerElement(row, space-around);
   background-color: $background-color-basic;
   position: fixed;
-  bottom: 110px;
+  bottom: 160px;
   right: 20px;
   border-radius: $border-radius-basic;
 }

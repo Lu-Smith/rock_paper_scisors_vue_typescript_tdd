@@ -20,6 +20,7 @@ export default {
 
 .footer {
   animation: colorAnimation 2s infinite;
+  margin-bottom: $margin-basic;
 }
 
 </style>
