@@ -45,6 +45,13 @@ export default {
   bottom: 140px;
   right: 10px;
   border-radius: $border-radius-small;
+  padding: $padding-button-mobile-small;
+}
+}
+
+@media screen and (width < 481px){
+  .score-container{
+  bottom: 100px;
 }
 }
 

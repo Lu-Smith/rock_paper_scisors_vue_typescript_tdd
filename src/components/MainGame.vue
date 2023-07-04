@@ -124,14 +124,18 @@ export default defineComponent({
 }
 
 @media screen and (width < 1100px){
-  .game-container {
+  .game-container, .result-container {
     margin-top: $margin-basic;
+  }
+
+  .play-again {
+    margin-bottom: $margin-basic;
   }
 }
 
 @media screen and (width < 860px){
-  .game-container {
-    margin-top: $margin-top-basic;
+  .game-container, .result-container {
+    margin-top: $margin-top-large;
   }
 }
 </style>
