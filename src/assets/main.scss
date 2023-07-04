@@ -33,7 +33,7 @@ h1 {
     line-height: $line-height-large;
 }
 
-h2, h3 {
+h2, h3, h5 {
     padding: $padding-small;
 }
 
@@ -47,6 +47,14 @@ h4 {
     padding: $padding-small;
     font-size: $font-size-small;
     line-height: $line-height-small;
+}
+
+h5 {
+    color: $background-color-dark;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    font-family: 'Caprasimo', cursive;
+    letter-spacing: 2px;
 }
 
 a {
