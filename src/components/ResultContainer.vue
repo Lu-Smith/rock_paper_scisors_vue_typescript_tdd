@@ -60,4 +60,27 @@ export default {
   }
 }
 
+@media screen and (width < 860px){
+  .results {
+  margin-top: 0;
+}
+
+.result-move {
+  width: 250px;
+  height: 250px;
+  margin: $margin-small;
+  box-shadow: $box-shadow-mobile;
+
+  div {
+    margin-top: $margin-basic;
+    text-shadow: $box-shadow-mobile;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
+}
+
 </style>

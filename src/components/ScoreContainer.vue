@@ -35,9 +35,17 @@ export default {
   @include centerElement(row, space-around);
   background-color: $background-color-basic;
   position: fixed;
-  bottom: 160px;
+  bottom: 170px;
   right: 20px;
   border-radius: $border-radius-basic;
+}
+
+@media screen and (width < 860px){
+  .score-container{
+  bottom: 140px;
+  right: 10px;
+  border-radius: $border-radius-small;
+}
 }
 
 </style>

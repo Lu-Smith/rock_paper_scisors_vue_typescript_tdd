@@ -132,5 +132,140 @@ footer {
     padding-top: $padding-basic;
 }
 
+@media screen and (width < 1400px){
+    img {
+        width: 20%;
+    }
+}
 
+@media screen and (width < 1000px){
+    img {
+        width: 25%;
+    }
+}
+
+@media screen and (width < 860px){
+    #app {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+    }
+    
+    h1 {
+        letter-spacing: 1px;
+        padding: $padding-small;
+        font-size: $font-size-basic;
+        line-height: $line-height-basic;
+    }
+    
+    h2, h3, h5 {
+        padding: $padding-mobile;
+    }
+    
+    h2 {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        text-shadow: $box-shadow-mobile;
+    }
+    
+    h4 {
+        padding: $padding-mobile;
+        font-size: $font-size-mobile;
+        line-height: $line-height-mobile;
+    }
+    
+    h5 {
+        font-size: $font-size-basic;
+        line-height: $line-height-basic;
+        letter-spacing: 1px;
+    }
+    
+    a {
+        text-decoration-thickness: 2px;
+    }
+    
+    a:hover {
+        text-underline-offset: 4px;
+    }
+    
+    img {
+        width: 30%;
+    }
+    
+    input {
+        padding: $padding-button-mobile;
+        border-radius: $border-radius-small;
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+    }
+    
+    button {
+        border-radius: $border-radius-small;
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        padding: $padding-button-mobile;
+        box-shadow: $box-shadow-mobile;
+    }
+    
+    button:hover {
+        border-radius: $border-radius-basic;
+    }
+    
+    footer {
+        border-top-left-radius: $border-radius-basic;
+        border-top-right-radius: $border-radius-basic;
+        padding-top: $padding-small;
+    }
+}
+
+@media screen and (width < 480px){
+    #app {
+        font-size: $font-size-mobile;
+        line-height: $line-height-mobile;
+    }
+    
+    h1 {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+    }
+    
+    h2, h3, h5 {
+        padding: $padding-mobile-small;
+    }
+    
+    h2 {
+        font-size: $font-size-mobile;
+        line-height: $line-height-mobile;
+    }
+    
+    h4 {
+        padding: $padding-mobile-small;
+        font-size: $font-size-mobile-small;
+        line-height: $line-height-mobile-small;
+    }
+    
+    h5 {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+    }
+    
+    a:hover {
+        text-underline-offset: 3px;
+    }
+    
+    img {
+        width: 30%;
+    }
+    
+    input {
+        padding: $padding-button-mobile-small;
+        font-size: $font-size-mobile;
+        line-height: $line-height-mobile;
+    }
+    
+    button {
+        font-size: $font-size-mobile;
+        line-height: $line-height-mobile;
+        padding: $padding-button-mobile-small;
+    }
+}
 

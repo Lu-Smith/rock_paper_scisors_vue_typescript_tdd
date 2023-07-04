@@ -12,9 +12,14 @@ $font-family-title: 'Caprasimo', cursive;
 //padding
 $padding-basic: 30px;
 $padding-small: 15px;
+$padding-mobile: 10px;
+$padding-mobile-small: 8px;
 $padding-button-basic: 15px 30px;
+$padding-button-mobile: 10px 20px;
+$padding-button-mobile-small: 8px 15px;
 
 //margin
+$margin-small: 10px;
 $margin-basic: 20px;
 $margin-top-basic: 30px;
 
@@ -22,15 +27,21 @@ $margin-top-basic: 30px;
 $font-size-basic: 18px;
 $font-size-large: 30px;
 $font-size-small: 15px;
+$font-size-mobile: 13px;
+$font-size-mobile-small: 10px;
 
 // line-height
 $line-height-basic: 23px;
 $line-height-large: 35px;
 $line-height-small: 20px;
+$line-height-mobile: 18px;
+$line-height-mobile-small: 15px;
 
 //border-radius
+$border-radius-small: 15px;
 $border-radius-basic: 20px;
 $border-radius-large: 50%;
 
 //shadows
-$box-shadow-basic: 3px 3px 3px rgba(0, 0, 0, 0.5)
+$box-shadow-basic: 3px 3px 3px rgba(0, 0, 0, 0.5);
+$box-shadow-mobile: 2px 2px 2px rgba(0, 0, 0, 0.5);

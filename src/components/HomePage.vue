@@ -126,4 +126,15 @@ export default {
   color: $color-warning;
   margin-top: $margin-top-basic;
 }
+
+@media screen and (width < 860px){
+  .player {
+  width: 330px;
+  border-radius: $border-radius-small;
+  box-shadow: $box-shadow-mobile;
+}
+.welcome-message {
+  text-shadow: $box-shadow-mobile;
+}
+}
 </style>

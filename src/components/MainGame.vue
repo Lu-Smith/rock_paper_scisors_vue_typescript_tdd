@@ -123,4 +123,15 @@ export default defineComponent({
   animation: rotateLoading 1s infinite linear;
 }
 
+@media screen and (width < 1100px){
+  .game-container {
+    margin-top: $margin-basic;
+  }
+}
+
+@media screen and (width < 860px){
+  .game-container {
+    margin-top: $margin-top-basic;
+  }
+}
 </style>

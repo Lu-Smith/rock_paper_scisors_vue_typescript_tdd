@@ -23,4 +23,17 @@ export default {
   margin-bottom: $margin-basic;
 }
 
+@media screen and (width < 1000px){
+  .footer {
+    margin-bottom: $margin-small;
+  }
+}
+
+@media screen and (width < 860px){
+  .footer {
+    font-size: $font-size-mobile;
+    padding: 0 50px;
+  }
+}
+
 </style>
