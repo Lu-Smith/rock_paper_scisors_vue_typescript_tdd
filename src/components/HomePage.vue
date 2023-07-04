@@ -137,4 +137,10 @@ export default {
   text-shadow: $box-shadow-mobile;
 }
 }
+
+@media screen and (width < 481px){
+  .player {
+  width: 280px;
+}
+}
 </style>

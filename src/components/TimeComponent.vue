@@ -80,4 +80,23 @@ export default {
 span {
     color: $color-decor;
 }
+
+@media screen and (width < 860px){
+  .time {
+    font-size: $font-size-mobile;
+    line-height: $line-height-mobile;
+    width: 330px;
+  }
+}
+
+@media screen and (width < 481px){
+  .time {
+    font-size: $font-size-mobile-small;
+    line-height: $line-height-mobile-small;
+    width: 260px;
+    border-top-left-radius: $border-radius-basic;
+    border-top-right-radius: $border-radius-basic;
+    padding-top: $padding-mobile;
+  }
+}
 </style>

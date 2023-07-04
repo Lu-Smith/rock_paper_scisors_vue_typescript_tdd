@@ -36,4 +36,11 @@ export default {
   }
 }
 
+@media screen and (width < 481px){
+  .footer {
+    font-size: $font-size-mobile-small;
+    padding: 0 40px;
+  }
+}
+
 </style>

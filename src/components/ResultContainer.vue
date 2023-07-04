@@ -83,4 +83,22 @@ export default {
 }
 }
 
+@media screen and (width < 4810px){
+
+.result-move {
+  width: 180px;
+  height: 180px;
+  margin: $margin-mobile;
+
+  div {
+    margin-top: $margin-basic;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
+}
+
 </style>
