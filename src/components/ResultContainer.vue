@@ -45,15 +45,18 @@ export default {
   height: 300px;
   @include centerElement(column, center);
   margin: $margin-basic;
+  box-shadow: $box-shadow-basic;
 
   div {
     color: $color-decor;
     font-family: $font-family-title;
+    margin-top: $margin-top-basic;
+    text-shadow: $box-shadow-basic;
   }
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
   }
 }
 
