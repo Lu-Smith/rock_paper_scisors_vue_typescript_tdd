@@ -83,7 +83,7 @@ export default {
 }
 }
 
-@media screen and (width < 4810px){
+@media screen and (width < 481px){
 
 .result-move {
   width: 180px;

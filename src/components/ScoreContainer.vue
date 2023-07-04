@@ -52,6 +52,9 @@ export default {
 @media screen and (width < 481px){
   .score-container{
   bottom: 100px;
+  left: 0;
+  right: 0;
+  margin: $margin-small;
 }
 }
 

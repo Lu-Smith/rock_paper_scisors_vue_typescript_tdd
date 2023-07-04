@@ -9,7 +9,7 @@
       <div v-if="!timeOver">
         Welcome, {{ playerName }}!
       </div>
-      <div v-else>
+      <div v-else class="warning-timer-message">
         {{ playerName }}! Shape your destiny with confidence ( 10s ).
       </div>
     </div>
@@ -141,6 +141,11 @@ export default {
 @media screen and (width < 481px){
   .player {
   width: 280px;
+}
+
+.warning-timer-message {
+  font-size: $font-size-mobile-small;
+  line-height: $line-height-mobile-small;
 }
 }
 </style>

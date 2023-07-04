@@ -103,6 +103,10 @@ export default defineComponent({
 <style lang="scss">
 @import '../assets/variables';
 
+.result-container {
+    margin-top: $margin-small;
+  }
+
 .player-choice:hover, .result-move {
   background-color: $background-color-basic;
   border-radius: $border-radius-large;
